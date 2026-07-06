@@ -2,12 +2,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0070FF;
-  --color-dark-bg: #050505;
-  --color-card: #121212;
-  --color-accent: #0070FF;
-  --color-text: #E0E0E0;
-  --color-muted: #888888;
+  --color-primary: #2563EB;
+  --color-secondary: #7C3AED;
+  --color-dark-bg: #050816;
+  --color-surface: #0B1220;
+  --color-card: #111827;
+  --color-accent: #06B6D4;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-text: #F8FAFC;
+  --color-muted: #94A3B8;
   
   --font-heading: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -102,5 +107,13 @@
 
   .spec-row {
     @apply border-b border-white/10 py-6 flex items-baseline justify-between transition-colors hover:bg-white/[0.02];
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

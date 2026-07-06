@@ -3,7 +3,7 @@ import { Users, Cpu, GraduationCap, GitBranch, FlaskConical } from 'lucide-react
 export const ecosystemUnits = [
   {
     id: 'community',
-    title: 'AntCode Community',
+    title: 'Antcode Technology Community',
     description: 'A thriving network of developers, innovators, and tech enthusiasts across Africa and beyond.',
     icon: Users,
     href: '/community',
@@ -12,7 +12,7 @@ export const ecosystemUnits = [
   },
   {
     id: 'technology',
-    title: 'AntCode Technology',
+    title: 'Antcode Technology',
     description: 'Enterprise-grade software engineering, AI solutions, and digital transformation services.',
     icon: Cpu,
     href: '/technology',
@@ -21,7 +21,7 @@ export const ecosystemUnits = [
   },
   {
     id: 'academy',
-    title: 'AntCode Academy',
+    title: 'Antcode Technology Academy',
     description: 'Structured learning paths, mentorship, and certifications for the next generation of builders.',
     icon: GraduationCap,
     href: '/academy',
@@ -36,15 +36,6 @@ export const ecosystemUnits = [
     href: '/open-source',
     color: 'from-success/20 to-success/5',
     accent: '#10B981',
-  },
-  {
-    id: 'nextpy',
-    title: 'NextPy',
-    description: 'A modern Python framework designed for rapid, scalable application development.',
-    icon: FlaskConical,
-    href: '/open-source#nextpy',
-    color: 'from-warning/20 to-warning/5',
-    accent: '#F59E0B',
   },
   {
     id: 'research',

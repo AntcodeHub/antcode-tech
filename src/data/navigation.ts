@@ -17,11 +17,10 @@ export const mainNav = [
 
 export const footerNav = {
   ecosystem: [
-    { name: 'AntCode Community', href: '/community' },
-    { name: 'AntCode Technology', href: '/technology' },
-    { name: 'AntCode Academy', href: '/academy' },
+    { name: 'Antcode Technology Community', href: '/community' },
+    { name: 'Antcode Technology', href: '/technology' },
+    { name: 'Antcode Technology Academy', href: '/academy' },
     { name: 'Open Source', href: '/open-source' },
-    { name: 'NextPy', href: '/open-source#nextpy' },
   ],
   company: [
     { name: 'About', href: '/about' },

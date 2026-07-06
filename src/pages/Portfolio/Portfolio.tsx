@@ -3,9 +3,14 @@ import { Section } from '../../components/layout/Section'
 import { projects } from '../../data/projects'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '../../utils/cn'
+import { Modal } from '../../components/ui/Modal'
+import { Button } from '../../components/ui/Button'
+import { Link } from 'react-router-dom'
+import { MarkdownContent } from '../Blog/BlogPost'
 
 export default function Portfolio() {
   const [hoveredIndex, setOpenIndex] = useState<number | null>(null)
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null)
 
   return (
     <div className="flex flex-col">
@@ -34,6 +39,7 @@ export default function Portfolio() {
               className="relative spec-row group cursor-none px-6 lg:px-12 h-32 lg:h-48 border-b border-white/5"
               onMouseEnter={() => setOpenIndex(index)}
               onMouseLeave={() => setOpenIndex(null)}
+              onClick={() => setSelectedProject(project)}
             >
               <div className="flex items-center space-x-12 w-full relative z-20">
                 <span className="font-mono text-white/10 text-sm hidden lg:block group-hover:text-primary transition-colors">
@@ -213,6 +219,47 @@ export default function Portfolio() {
             </div>
          </div>
       </Section>
+
+      <Modal
+        isOpen={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
+        title={selectedProject?.title || ''}
+      >
+        {selectedProject && (
+          <div className="space-y-6">
+            <img 
+              src={selectedProject.image} 
+              alt={selectedProject.title} 
+              className="w-full h-64 object-cover rounded-lg"
+            />
+            <div className="flex items-center gap-4">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded">{selectedProject.category}</span>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {selectedProject.technologies.map((tech) => (
+                <span key={tech} className="text-[10px] font-mono uppercase text-white/60 bg-white/5 px-2 py-1 rounded">{tech}</span>
+              ))}
+            </div>
+            <div className="grid grid-cols-3 gap-4 p-4 bg-white/5 rounded-lg">
+              {Object.entries(selectedProject.metrics).map(([key, value]) => (
+                <div key={key}>
+                  <p className="text-[10px] font-mono uppercase text-white/30">{key}</p>
+                  <p className="text-sm font-mono text-primary font-bold">{value}</p>
+                </div>
+              ))}
+            </div>
+            <MarkdownContent content={selectedProject.fullDescription} />
+            <div className="flex gap-4 pt-4">
+              <Button asChild variant="primary" className="font-mono uppercase tracking-widest text-xs">
+                <Link to="/contact">Discuss Project</Link>
+              </Button>
+              <Button asChild variant="secondary" className="font-mono uppercase tracking-widest text-xs">
+                <Link to="/case-studies">View Case Study</Link>
+              </Button>
+            </div>
+          </div>
+        )}
+      </Modal>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export function TerminalForm() {
   const [input, setInput] = useState('')
   const [history, setLines] = useState<string[]>([
-    'Initializing AntCode CLI v4.2.0...',
+    'Initializing Antcode Technology CLI v4.2.0',
     'Secure connection established.',
     'Type "help" for a list of commands.',
     '',

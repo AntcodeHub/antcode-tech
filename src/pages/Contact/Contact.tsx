@@ -1,54 +1,63 @@
 import { Section } from '../../components/layout/Section'
-import { motion } from 'framer-motion'
+import { PageHero } from '../../components/layout/PageHero'
 import { TerminalForm } from '../../components/contact/TerminalForm'
+import { Button } from '../../components/ui/Button'
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react'
 
 export default function Contact() {
   return (
     <div className="flex flex-col">
-      {/* Hero */}
-      <div className="pt-40 pb-24 halftone-bg border-b border-white/5">
-        <div className="container-custom text-center max-w-4xl mx-auto">
-          <span className="font-mono text-primary text-[10px] uppercase tracking-[0.4em] mb-6 block">
-            Initialize Handshake
-          </span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-8xl font-heading font-bold text-white mb-8"
-          >
-            LET'S <br />
-            TALK.
-          </motion.h1>
-          <p className="text-xl text-muted leading-relaxed">
-            Reach out through our secure interface or via traditional channels.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        label="Contact"
+        title={<>Let's Build <span className="text-white/40">Together</span></>}
+        description="Start a project, join the community, or just say hello. We'd love to hear from you."
+      />
 
       <Section>
-        <div className="mb-20">
-          <h2 className="text-center font-mono text-xs uppercase tracking-[0.5em] text-white/20 mb-12">
-            Command Line Interface
-          </h2>
-          <TerminalForm />
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <h2 className="text-2xl font-heading font-bold text-white mb-8">Send a Message</h2>
+            <TerminalForm />
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-20 border-t border-white/5">
-           <div className="space-y-4">
-              <p className="font-mono text-[10px] uppercase text-white/30 tracking-widest">Protocol</p>
-              <h4 className="text-xl font-heading font-bold text-white">Direct Mail</h4>
-              <a href="mailto:ops@antcode.tech" className="text-muted hover:text-primary transition-colors">ops@antcode.tech</a>
-           </div>
-           <div className="space-y-4">
-              <p className="font-mono text-[10px] uppercase text-white/30 tracking-widest">Latency</p>
-              <h4 className="text-xl font-heading font-bold text-white">Real-time</h4>
-              <p className="text-muted">+1 (555) 000-0000</p>
-           </div>
-           <div className="space-y-4">
-              <p className="font-mono text-[10px] uppercase text-white/30 tracking-widest">Locality</p>
-              <h4 className="text-xl font-heading font-bold text-white">Silicon Valley</h4>
-              <p className="text-muted">Node 0x1A2B, CA</p>
-           </div>
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-2xl font-heading font-bold text-white mb-8">Get in Touch</h2>
+              <div className="space-y-6">
+                {[
+                  { icon: Mail, label: 'Email', value: 'hello@antcode.tech', href: 'mailto:hello@antcode.tech' },
+                  { icon: Phone, label: 'Phone / WhatsApp', value: '+237 6XX XXX XXX', href: 'https://wa.me/237600000000' },
+                  { icon: MapPin, label: 'Office', value: 'Douala, Cameroon', href: '#' },
+                  { icon: MessageCircle, label: 'Community', value: 'Discord & Telegram', href: '/community' },
+                ].map((item) => (
+                  <a key={item.label} href={item.href} className="flex items-start gap-4 glass-card p-5 hover:border-primary/30 transition-all group">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <item.icon size={18} className="text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-mono uppercase text-muted">{item.label}</p>
+                      <p className="text-white group-hover:text-primary transition-colors mt-1">{item.value}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="glass-card p-8">
+              <h3 className="font-heading font-bold text-white mb-4">Book a Meeting</h3>
+              <p className="text-muted text-sm mb-6">Schedule a free 30-minute consultation to discuss your project.</p>
+              <Button variant="primary" className="w-full font-mono uppercase tracking-widest text-xs">
+                Schedule Call
+              </Button>
+            </div>
+
+            <div className="glass-card aspect-video flex items-center justify-center bg-surface/50">
+              <div className="text-center">
+                <MapPin size={32} className="text-primary/40 mx-auto mb-3" />
+                <p className="text-muted text-sm font-mono">Douala, Cameroon</p>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
     </div>

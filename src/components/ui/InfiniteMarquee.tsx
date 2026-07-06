@@ -14,8 +14,7 @@ export function InfiniteMarquee({ items, speed = 50, direction = 'left' }: Infin
     const marquee = marqueeRef.current
     if (!marquee) return
 
-    const clone = marquee.innerHTML
-    marquee.innerHTML += clone // Duplicate for seamless loop
+    
 
     const totalWidth = marquee.scrollWidth
     const duration = totalWidth / speed

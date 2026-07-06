@@ -1,138 +1,94 @@
 import { Link } from 'react-router-dom'
-import { SiGithub, SiInstagram, SiX, SiCloudflare, SiVercel } from '@icons-pack/react-simple-icons'
-import { motion } from 'framer-motion'
-
-const footerLinks = {
-  company: [
-    { name: 'About Us', href: '/about' },
-    { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Contact', href: '/contact' },
-  ],
-  services: [
-    { name: 'Web Development', href: '/services' },
-    { name: 'Mobile Apps', href: '/services' },
-    { name: 'AI Solutions', href: '/services' },
-    { name: 'Cybersecurity', href: '/services' },
-    { name: 'UI/UX Design', href: '/services' },
-  ],
-  legal: [
-    { name: 'Privacy Policy', href: '#' },
-    { name: 'Terms of Service', href: '#' },
-    { name: 'Cookie Policy', href: '#' },
-  ],
-}
+import { SiGithub, SiInstagram, SiX, SiDiscord, SiTelegram } from '@icons-pack/react-simple-icons'
+import { footerNav } from '../../data/navigation'
 
 export function Footer() {
   return (
-    <footer className="bg-dark-bg border-t border-white/5 pt-32 pb-12">
+    <footer className="bg-surface border-t border-white/5 pt-24 pb-12">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-24">
-          {/* Brand Info */}
-          <div className="lg:col-span-5 space-y-8">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary flex items-center justify-center">
-                <span className="text-white font-bold text-2xl font-mono">A</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20">
+          <div className="lg:col-span-4 space-y-6">
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl font-mono">A</span>
               </div>
-              <span className="font-heading font-bold text-2xl tracking-tight text-white uppercase">
-                AntCode <span className="text-primary font-medium">Technology</span>
+              <span className="font-heading font-bold text-xl text-white">
+                Antcode <span className="text-primary">Technology</span>
               </span>
             </Link>
-            <p className="text-muted text-lg leading-relaxed max-w-sm">
-              Factual engineering for high-throughput distributed systems and 
-              neural architectures.
+            <p className="text-muted leading-relaxed max-w-sm">
+              Building Africa's future through technology — engineering, community, 
+              education, and open source under one ecosystem.
             </p>
-            <div className="flex items-center space-x-6">
-              <a href="#" className="text-white/20 hover:text-primary transition-colors">
-                <SiX size={20} />
-              </a>
-              <a href="#" className="text-white/20 hover:text-primary transition-colors">
-                <SiInstagram size={20} />
-              </a>
-              <a href="#" className="text-white/20 hover:text-primary transition-colors">
-                <SiGithub size={20} />
-              </a>
+            <div className="flex items-center gap-4">
+              {[SiX, SiGithub, SiDiscord, SiTelegram, SiInstagram].map((Icon, i) => (
+                <a key={i} href="#" className="text-white/20 hover:text-primary transition-colors">
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Links */}
-          <div className="lg:col-span-2 space-y-6">
-            <h4 className="font-mono text-[10px] uppercase text-white/30 tracking-[0.2em]">Systems</h4>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link, i) => (
-                <motion.li 
-                  key={link.name}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                >
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="font-mono text-[10px] uppercase text-white/30 tracking-[0.2em]">Ecosystem</h4>
+            <ul className="space-y-2.5">
+              {footerNav.ecosystem.map((link) => (
+                <li key={link.name}>
                   <Link to={link.href} className="text-muted text-sm hover:text-white transition-colors">
                     {link.name}
                   </Link>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </div>
 
-          <div className="lg:col-span-2 space-y-6">
-            <h4 className="font-mono text-[10px] uppercase text-white/30 tracking-[0.2em]">Organization</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link, i) => (
-                <motion.li 
-                  key={link.name}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                >
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="font-mono text-[10px] uppercase text-white/30 tracking-[0.2em]">Company</h4>
+            <ul className="space-y-2.5">
+              {footerNav.company.map((link) => (
+                <li key={link.name}>
                   <Link to={link.href} className="text-muted text-sm hover:text-white transition-colors">
                     {link.name}
                   </Link>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div className="lg:col-span-3 space-y-6">
-            <h4 className="font-mono text-[10px] uppercase text-white/30 tracking-[0.2em]">Node Locality</h4>
-            <div className="space-y-4 font-mono text-xs">
-              <div className="flex items-start space-x-3">
-                <span className="text-primary">ADDR</span>
-                <span className="text-muted">0x1A2B Tech Ave, SV, CA</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <span className="text-primary">MAIL</span>
-                <a href="mailto:ops@antcode.tech" className="text-muted hover:text-white transition-colors">
-                  ops@antcode.tech
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <span className="text-primary">PING</span>
-                <span className="text-muted">+1.555.0000.0x0</span>
-              </div>
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="font-mono text-[10px] uppercase text-white/30 tracking-[0.2em]">Resources</h4>
+            <ul className="space-y-2.5">
+              {footerNav.resources.map((link) => (
+                <li key={link.name}>
+                  <Link to={link.href} className="text-muted text-sm hover:text-white transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="font-mono text-[10px] uppercase text-white/30 tracking-[0.2em]">Contact</h4>
+            <div className="space-y-3 font-mono text-xs">
+              <p className="text-muted">Douala, Cameroon</p>
+              <a href="mailto:hello@antcode.tech" className="text-muted hover:text-white transition-colors block">
+                hello@antcode.tech
+              </a>
+              <a href="https://wa.me/237600000000" className="text-muted hover:text-white transition-colors block">
+                WhatsApp
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <motion.div 
-             initial={{ opacity: 0 }}
-             whileInView={{ opacity: 1 }}
-             viewport={{ once: true }}
-             className="flex items-center space-x-4 opacity-30 grayscale hover:opacity-100 transition-all cursor-default"
-          >
-             <SiCloudflare size={20} />
-             <SiVercel size={18} />
-          </motion.div>
-          <p className="text-white/10 text-[10px] font-mono uppercase tracking-widest">
-            © {new Date().getFullYear()} ANTCODE_TECH // VER_4.2.0_STABLE
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-white/20 text-[10px] font-mono uppercase tracking-widest">
+            © {new Date().getFullYear()} Antcode Technology. All rights reserved.
           </p>
-          <div className="flex items-center space-x-8">
-            {footerLinks.legal.map((link) => (
-              <a key={link.name} href={link.href} className="text-white/10 text-[10px] font-mono uppercase tracking-widest hover:text-white transition-colors">
+          <div className="flex items-center gap-6">
+            {footerNav.legal.map((link) => (
+              <a key={link.name} href={link.href} className="text-white/20 text-[10px] font-mono uppercase tracking-widest hover:text-white transition-colors">
                 {link.name}
               </a>
             ))}

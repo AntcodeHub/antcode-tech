@@ -2,49 +2,44 @@ import { services } from '../../data/services'
 import { ServiceCard } from './ServiceCard'
 import { Section } from '../layout/Section'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 
 export function ServicesGrid() {
   return (
-    <Section id="services" container={false} className="py-0 lg:py-0">
-      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen">
-        {/* Sticky Left Column */}
-        <div className="lg:col-span-4 bg-dark-bg lg:sticky lg:top-0 h-fit lg:h-screen flex flex-col justify-center p-12 lg:p-24 border-r border-white/5">
-          <span className="font-mono text-primary text-[10px] uppercase tracking-[0.4em] mb-6">
-            Core Architectures
+    <Section id="services">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span className="font-mono text-primary text-[10px] uppercase tracking-[0.4em] mb-6 block">
+            What We Build
           </span>
-          <h2 className="text-5xl lg:text-7xl font-heading font-bold text-white mb-8 leading-tight">
-            Our <br /> Expertise.
+          <h2 className="text-4xl md:text-6xl font-heading font-bold text-white leading-tight">
+            Our <span className="text-white/40">Services</span>
           </h2>
-          <p className="text-muted text-lg max-w-xs mb-12">
-            Factual engineering for the next generation of data-intensive systems.
+          <p className="text-muted text-lg mt-4 max-w-xl">
+            From AI to mobile, cloud to cybersecurity — comprehensive technology services for every stage of your journey.
           </p>
-          
-          {/* Minimap Progress (Static indicator for now) */}
-          <div className="flex flex-col space-y-4">
-             {['Cloud Infrastructure', 'Neural Computing', 'Edge Delivery'].map((item) => (
-               <div key={item} className="flex items-center space-x-4 opacity-30 hover:opacity-100 transition-opacity cursor-default">
-                  <div className="w-8 h-px bg-white" />
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-white">{item}</span>
-               </div>
-             ))}
-          </div>
         </div>
+        <Link
+          to="/services"
+          className="inline-flex items-center gap-2 text-sm font-mono uppercase tracking-widest text-primary hover:text-white transition-colors shrink-0"
+        >
+          All Services <ArrowRight size={16} />
+        </Link>
+      </div>
 
-        {/* Scrolling Right Column */}
-        <div className="lg:col-span-8">
-          {services.slice(0, 4).map((service, index) => (
-            <motion.div 
-               key={service.id} 
-               initial={{ opacity: 0, y: 50 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true, margin: "-100px" }}
-               transition={{ duration: 0.8, delay: index * 0.1 }}
-               className="min-h-screen flex items-center p-6 lg:p-24 border-b border-white/5"
-            >
-               <ServiceCard {...service} />
-            </motion.div>
-          ))}
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {services.map((service, index) => (
+          <motion.div
+            key={service.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.05 }}
+          >
+            <ServiceCard {...service} />
+          </motion.div>
+        ))}
       </div>
     </Section>
   )

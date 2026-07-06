@@ -1,11 +1,16 @@
+import { useState } from 'react'
 import { Section } from '../../components/layout/Section'
 import { services } from '../../data/services'
 import { ServiceCard } from '../../components/services/ServiceCard'
 import { motion } from 'framer-motion'
-import { CheckCircle2, ArrowRight } from 'lucide-react'
+import { CheckCircle2, ArrowRight, Eye } from 'lucide-react'
 import { Button } from '../../components/ui/Button'
+import { Modal } from '../../components/ui/Modal'
+import { Link } from 'react-router-dom'
+import { MarkdownContent } from '../Blog/BlogPost'
 
 export default function Services() {
+  const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null)
   return (
     <div className="flex flex-col relative">
       <div className="fixed inset-0 halftone-bg opacity-[0.02] pointer-events-none" />
@@ -40,7 +45,14 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
+              className="relative"
             >
+              <button
+                onClick={() => setSelectedService(service)}
+                className="absolute top-4 right-4 z-10 bg-primary/90 hover:bg-primary text-white p-2 rounded-lg transition-colors opacity-0 group-hover:opacity-100"
+              >
+                <Eye size={16} />
+              </button>
               <ServiceCard {...service} />
             </motion.div>
           ))}
@@ -118,6 +130,34 @@ export default function Services() {
            </div>
         </div>
       </Section>
+
+      <Modal
+        isOpen={!!selectedService}
+        onClose={() => setSelectedService(null)}
+        title={selectedService?.title || ''}
+      >
+        {selectedService && (
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded">{selectedService.title}</span>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {selectedService.technologies.map((tech) => (
+                <span key={tech} className="text-[10px] font-mono uppercase text-white/60 bg-white/5 px-2 py-1 rounded">{tech}</span>
+              ))}
+            </div>
+            <MarkdownContent content={selectedService.fullDescription} />
+            <div className="flex gap-4 pt-4">
+              <Button asChild variant="primary" className="font-mono uppercase tracking-widest text-xs">
+                <Link to="/contact">Get Started</Link>
+              </Button>
+              <Button asChild variant="secondary" className="font-mono uppercase tracking-widest text-xs">
+                <Link to="/contact">Learn More</Link>
+              </Button>
+            </div>
+          </div>
+        )}
+      </Modal>
     </div>
   )
 }
