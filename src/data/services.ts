@@ -1,0 +1,77 @@
+import { 
+  Code2, 
+  Smartphone, 
+  Cpu, 
+  ShieldCheck, 
+  Cloud, 
+  Layers, 
+  Globe, 
+  MessageSquareCode 
+} from 'lucide-react'
+
+export const services = [
+  {
+    id: 'custom-software',
+    title: 'Custom Software',
+    description: 'Bespoke enterprise solutions tailored to your unique business requirements and goals.',
+    icon: Code2,
+    technologies: ['Java', 'Python', '.NET', 'Go'],
+    color: 'from-blue-500/20 to-blue-600/20',
+  },
+  {
+    id: 'web-development',
+    title: 'Web Development',
+    description: 'High-performance, scalable web applications built with modern frameworks and best practices.',
+    icon: Globe,
+    technologies: ['React', 'Next.js', 'TypeScript', 'Node.js'],
+    color: 'from-purple-500/20 to-purple-600/20',
+  },
+  {
+    id: 'mobile-apps',
+    title: 'Mobile Apps',
+    description: 'Native and cross-platform mobile experiences that engage users and drive growth.',
+    icon: Smartphone,
+    technologies: ['Flutter', 'React Native', 'iOS', 'Android'],
+    color: 'from-cyan-500/20 to-cyan-600/20',
+  },
+  {
+    id: 'ai-solutions',
+    title: 'AI Solutions',
+    description: 'Harness the power of machine learning and LLMs to automate processes and gain insights.',
+    icon: Cpu,
+    technologies: ['OpenAI', 'PyTorch', 'TensorFlow', 'Python'],
+    color: 'from-emerald-500/20 to-emerald-600/20',
+  },
+  {
+    id: 'cybersecurity',
+    title: 'Cybersecurity',
+    description: 'Comprehensive security audits and implementation to protect your digital assets.',
+    icon: ShieldCheck,
+    technologies: ['OAuth', 'SSL', 'Pen-Testing', 'Zero Trust'],
+    color: 'from-red-500/20 to-red-600/20',
+  },
+  {
+    id: 'cloud-devops',
+    title: 'Cloud & DevOps',
+    description: 'Streamlined deployment pipelines and robust cloud infrastructure management.',
+    icon: Cloud,
+    technologies: ['AWS', 'Azure', 'Docker', 'Kubernetes'],
+    color: 'from-orange-500/20 to-orange-600/20',
+  },
+  {
+    id: 'ui-ux-design',
+    title: 'UI/UX Design',
+    description: 'User-centric design that combines aesthetic beauty with intuitive functionality.',
+    icon: Layers,
+    technologies: ['Figma', 'Prototyping', 'User Research'],
+    color: 'from-pink-500/20 to-pink-600/20',
+  },
+  {
+    id: 'consulting',
+    title: 'Technical Consulting',
+    description: 'Expert guidance on technology strategy, architecture, and digital transformation.',
+    icon: MessageSquareCode,
+    technologies: ['Architecture', 'Strategy', 'Scalability'],
+    color: 'from-indigo-500/20 to-indigo-600/20',
+  },
+]
