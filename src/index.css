@@ -2,16 +2,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: rgb(138, 6, 219);
-  --color-dark-bg: #050816;
-  --color-card: #111827;
-  --color-accent: #06B6D4;
-  --color-text: #F8FAFC;
-  --color-muted: #94A3B8;
+  --color-primary: #0070FF;
+  --color-dark-bg: #050505;
+  --color-card: #121212;
+  --color-accent: #0070FF;
+  --color-text: #E0E0E0;
+  --color-muted: #888888;
   
   --font-heading: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-mono: "Fira Code", "JetBrains Mono", monospace;
 }
 
 @layer base {
@@ -23,20 +23,40 @@
 
   body {
     @apply bg-dark-bg text-text font-body antialiased;
-    overflow-x: hidden;
+    overflow-x: clip; /* For sticky layouts */
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-medium;
+    @apply font-heading font-medium tracking-tight;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-card/40 backdrop-blur-md border border-white/10 rounded-2xl;
+    @apply bg-card/40 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden;
+    position: relative;
+  }
+  
+  .glass-highlight::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  }
+
+  .halftone-bg {
+    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
   
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-6 lg:px-12;
+  }
+  
+  .spec-row {
+    @apply border-b border-white/10 py-6 flex items-baseline justify-between transition-colors hover:bg-white/[0.02];
   }
 }

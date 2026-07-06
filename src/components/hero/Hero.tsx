@@ -1,88 +1,104 @@
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { Magnetic } from '../ui/Magnetic'
 
 export function Hero() {
   return (
-    <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/20 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent/10 blur-[120px] rounded-full" />
-        <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-purple-600/10 blur-[100px] rounded-full" />
+    <div className="relative min-h-[100vh] flex items-center halftone-bg overflow-hidden pt-20">
+      {/* Dramatic Spotlight */}
+      <div className="absolute top-[-20%] left-[10%] w-[60%] h-[120%] bg-primary/10 blur-[150px] rounded-full pointer-events-none" />
+      
+      <div className="container-custom grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+        {/* Left Side: Content */}
+        <div className="lg:col-span-6 flex flex-col justify-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "circOut" }}
+            className="mb-6"
+          >
+            <span className="font-mono text-primary text-xs uppercase tracking-widest border-l-2 border-primary pl-4">
+              Production-ready architectures
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-6xl md:text-8xl font-heading font-bold text-white mb-8 leading-[0.95]"
+          >
+            Engineering <br />
+            systems <br />
+            that scale.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-lg text-muted max-w-md mb-12 leading-relaxed font-body"
+          >
+            AntCode Technology ships production-ready architectures for web, 
+            data, and machine learning. No fluff, just pure engineering.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6"
+          >
+            <Magnetic>
+              <Button variant="primary" size="lg" className="px-10 h-14 rounded-none font-mono uppercase tracking-widest">
+                Initialize project
+              </Button>
+            </Magnetic>
+            <button className="text-sm font-mono text-white/40 hover:text-white transition-colors flex items-center space-x-2">
+              <span>View technical specs</span>
+              <span className="text-lg">→</span>
+            </button>
+          </motion.div>
+        </div>
+
+        {/* Right Side: Browser Mockup Bleed */}
+        <div className="lg:col-span-6 relative">
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, delay: 0.4, ease: "circOut" }}
+            className="lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 w-full lg:w-[150%] aspect-video lg:aspect-square"
+          >
+            <div className="w-full h-full bg-[#0D0D0D] border border-white/10 rounded-tl-2xl shadow-2xl overflow-hidden glass-highlight">
+              {/* Browser Chrome */}
+              <div className="h-10 border-b border-white/10 bg-white/5 flex items-center px-4 space-x-2">
+                <div className="flex space-x-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                </div>
+                <div className="flex-grow flex justify-center">
+                  <div className="bg-white/5 px-6 py-1 rounded text-[10px] font-mono text-white/30 truncate max-w-xs">
+                    antcode.tech/architecture/edge-compute
+                  </div>
+                </div>
+              </div>
+              
+              {/* Content: Code Editor Image */}
+              <div className="p-1 h-full">
+                <img 
+                  src="https://images.unsplash.com/photo-1591439657848-9f4b9ce436b9?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85" 
+                  alt="AntCode Architecture - Riku Lu on Unsplash"
+                  className="w-full h-full object-cover opacity-80"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
-           style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
-      />
-
-      <div className="container-custom relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full mb-8"
-        >
-          <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-          <span className="text-xs font-medium text-text/80 tracking-wide uppercase">
-            Innovating the Future of Software
-          </span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tight text-white mb-8 leading-[1.1]"
-        >
-          Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Intelligent</span> <br />
-          Software That Moves <br />
-          Businesses Forward
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-12 leading-relaxed"
-        >
-          We design, develop, and scale modern software solutions for startups, 
-          enterprises, and organizations worldwide.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
-        >
-          <Magnetic>
-            <Button variant="primary" size="lg" className="w-full sm:w-auto group">
-              Start Your Project
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-            </Button>
-          </Magnetic>
-          <Magnetic>
-            <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-              Explore Services
-            </Button>
-          </Magnetic>
-        </motion.div>
-
-        {/* Floating Tech Badges (Optional/Decorative) */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-20 hidden 2xl:block opacity-20">
-            <div className="glass-card p-4 rotate-12">
-                <span className="font-mono text-xs">const innovate = () =&gt; true;</span>
-            </div>
-        </div>
-        <div className="absolute top-1/3 right-0 -translate-y-1/2 translate-x-20 hidden 2xl:block opacity-20">
-            <div className="glass-card p-4 -rotate-12">
-                <span className="font-mono text-xs">await AntCode.deploy();</span>
-            </div>
-        </div>
-      </div>
+      {/* Background Decor */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-dark-bg to-transparent z-20" />
     </div>
   )
 }

@@ -47,7 +47,7 @@ export function Navbar() {
             <span className="text-white font-bold text-xl">A</span>
           </div>
           <span className="font-heading font-bold text-xl tracking-tight text-white">
-            AntCode
+            AntCode <span className="text-primary font-medium">Technology</span>
           </span>
         </Link>
 

@@ -2,10 +2,7 @@ import { Hero } from '../../components/hero/Hero'
 import { TrustSection } from '../../components/hero/TrustSection'
 import { ServicesGrid } from '../../components/services/ServicesGrid'
 import { Section } from '../../components/layout/Section'
-import { Button } from '../../components/ui/Button'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { motion } from 'framer-motion'
-
 import { FAQ } from '../../components/faq/FAQ'
 
 export default function Home() {
@@ -14,40 +11,43 @@ export default function Home() {
       <Hero />
       <TrustSection />
       
-      {/* Company Intro Section */}
+      {/* Technical Proposition */}
       <Section className="bg-white/[0.01]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="lg:col-span-7"
           >
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-8">
-              We Don't Just Write Code. <br />
-              <span className="text-primary">We Build Futures.</span>
+            <span className="font-mono text-primary text-[10px] uppercase tracking-[0.4em] mb-6 block">
+              Architectural Rigor
+            </span>
+            <h2 className="text-4xl md:text-6xl font-heading font-bold text-white mb-8 leading-[1.1]">
+              We ship code that <br />
+              <span className="text-white/40 italic">actually</span> scales.
             </h2>
-            <p className="text-muted text-lg mb-8 leading-relaxed">
-              At AntCode Technology, we believe that software should be an asset, not a burden. 
-              Our team of engineers, designers, and strategists work in lockstep with your 
-              vision to create digital products that are scalable, secure, and user-centric.
+            <p className="text-muted text-lg mb-12 leading-relaxed max-w-xl">
+              AntCode Technology specializes in high-throughput architectures and 
+              machine learning pipelines. We don't just build features; we build 
+              the infrastructure that makes features possible.
             </p>
-            <ul className="space-y-4 mb-10">
-              {[
-                'Enterprise-grade quality assurance',
-                'Security-first development approach',
-                'Cloud-native and scalable architecture',
-                'Agile delivery and transparent communication'
-              ].map((item) => (
-                <li key={item} className="flex items-center space-x-3">
-                  <CheckCircle2 className="text-primary" size={20} />
-                  <span className="text-text/90">{item}</span>
-                </li>
-              ))}
-            </ul>
-            <Button variant="outline" size="lg">
-              Learn Our Story
-            </Button>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+               <div className="space-y-4">
+                  <h4 className="font-mono text-xs text-white uppercase tracking-widest">Protocol-First</h4>
+                  <p className="text-muted text-sm leading-relaxed">
+                    Prioritizing Type-safety and strict API contracts across all distributed nodes.
+                  </p>
+               </div>
+               <div className="space-y-4">
+                  <h4 className="font-mono text-xs text-white uppercase tracking-widest">Zero-Trust</h4>
+                  <p className="text-muted text-sm leading-relaxed">
+                    Integrated security audits at every layer of the application lifecycle.
+                  </p>
+               </div>
+            </div>
           </motion.div>
           
           <motion.div
@@ -55,24 +55,23 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="lg:col-span-5 relative"
           >
-            <div className="aspect-square rounded-3xl overflow-hidden glass-card p-1">
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
-                    {/* Abstract animated elements could go here */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-64 h-64 bg-primary/30 rounded-full blur-3xl animate-pulse" />
-                        <div className="w-48 h-48 bg-accent/20 rounded-full blur-2xl animate-bounce" style={{ animationDuration: '4s' }} />
-                    </div>
-                    <div className="z-10 text-6xl font-heading font-bold text-white/20 select-none">
-                        ANTCODE
-                    </div>
+            <div className="aspect-square glass-card bg-primary/5 border-primary/20 flex items-center justify-center relative overflow-hidden group">
+                {/* 3D Network Graph Video Bleed */}
+                <video 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-1000"
+                  poster="https://images.pexels.com/videos/3125396/free-video-3125396.jpg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630"
+                >
+                  <source src="https://videos.pexels.com/video-files/3125396/3125396-hd_1920_1080_25fps.mp4" type="video/mp4" />
+                </video>
+                <div className="z-10 font-mono text-[10px] text-primary/60 bg-black/40 px-4 py-2 backdrop-blur-md border border-primary/20">
+                   NODE_STREAMS_ACTIVE
                 </div>
-            </div>
-            {/* Floating stats card */}
-            <div className="absolute -bottom-6 -right-6 glass-card p-6 shadow-2xl">
-                <div className="text-2xl font-bold text-white mb-1">99.9%</div>
-                <div className="text-xs text-muted uppercase tracking-wider">System Uptime</div>
             </div>
           </motion.div>
         </div>
@@ -81,28 +80,23 @@ export default function Home() {
       <ServicesGrid />
       <FAQ />
 
-      {/* CTA Section */}
-      <Section className="relative bg-primary/5 py-24">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
-        <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-white mb-8">
-            Ready to Build Something <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Extraordinary?</span>
-          </h2>
-          <p className="text-muted text-xl mb-12">
-            Whether you're a startup looking for your first product or an enterprise 
-            scaling to millions of users, we're here to help.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <Button variant="primary" size="lg" className="w-full sm:w-auto group">
-              Start Your Project
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="ghost" size="lg" className="w-full sm:w-auto">
-              Schedule a Consultation
-            </Button>
+      {/* Footer CTA (Asymmetrical) */}
+      <Section className="relative py-40 border-t border-white/5">
+        <div className="container-custom">
+          <div className="max-w-4xl">
+             <span className="font-mono text-primary text-[10px] uppercase tracking-[0.4em] mb-8 block">
+               System Ready
+             </span>
+             <h2 className="text-6xl md:text-8xl font-heading font-bold text-white mb-12 leading-[0.9]">
+               Initialize your <br /> 
+               next <span className="text-white/40">breakthrough.</span>
+             </h2>
+             <button className="h-16 px-12 bg-primary text-white font-mono uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all">
+                Run Initialization
+             </button>
           </div>
         </div>
+        <div className="absolute right-0 bottom-0 w-1/3 h-full halftone-bg opacity-20 pointer-events-none lg:block hidden" />
       </Section>
     </div>
   )

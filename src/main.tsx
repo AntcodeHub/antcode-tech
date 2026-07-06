@@ -14,10 +14,10 @@ const Pricing = lazy(() => import('./pages/Pricing/Pricing'))
 const Contact = lazy(() => import('./pages/Contact/Contact'))
 
 const Layout = () => (
-  <div className="min-h-screen flex flex-col bg-dark-bg">
+  <div className="min-h-screen flex flex-col bg-dark-bg selection:bg-primary selection:text-white">
     <Navbar />
-    <main className="flex-grow pt-[80px]">
-      <Suspense fallback={<div className="h-screen flex items-center justify-center text-white">Loading...</div>}>
+    <main className="flex-grow">
+      <Suspense fallback={<div className="h-screen flex items-center justify-center text-white font-mono uppercase tracking-[0.4em] animate-pulse">Initializing_Session...</div>}>
         <Outlet />
       </Suspense>
     </main>
