@@ -116,15 +116,100 @@ export default function Portfolio() {
       </Section>
 
       {/* Case Study Callout */}
-      <Section className="bg-white/[0.02]">
-         <div className="container-custom flex flex-col lg:flex-row items-center justify-between gap-12">
-            <h2 className="text-4xl lg:text-6xl font-heading font-bold text-white max-w-2xl">
-              Building for scale is an <span className="text-primary italic">engineering</span> challenge.
+      <Section className="bg-white/[0.02] border-t border-white/5">
+         <div className="mb-20">
+            <span className="font-mono text-primary text-[10px] uppercase tracking-[0.4em] mb-6 block">Deep_Architecture_Scan</span>
+            <h2 className="text-5xl lg:text-7xl font-heading font-bold text-white tracking-tighter uppercase text-balance">
+               Blueprint <br />
+               <span className="text-white/20">Analysis.</span>
             </h2>
-            <div className="w-full lg:w-auto">
-               <button className="h-16 px-12 bg-white text-black font-heading font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-colors">
-                  View Case Study
-               </button>
+         </div>
+
+         {/* Asymmetric Bento Box Architecture */}
+         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 auto-rows-[300px] lg:auto-rows-[400px]">
+            {/* Box 1: Edge Network Visual */}
+            <div className="lg:col-span-8 glass-card border-white/5 relative overflow-hidden group">
+               <div className="absolute inset-0 bg-primary/[0.03] halftone-bg z-0" />
+               <video 
+                 autoPlay 
+                 loop 
+                 muted 
+                 playsInline 
+                 className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-1000"
+               >
+                 <source src="https://videos.pexels.com/video-files/6909831/6909831-hd_1920_1080_25fps.mp4" type="video/mp4" />
+               </video>
+               <div className="absolute inset-0 p-12 flex flex-col justify-between z-10">
+                  <div>
+                     <span className="font-mono text-[10px] text-primary uppercase tracking-[0.4em]">01_Global_Edge_Network</span>
+                     <h3 className="text-4xl font-heading font-bold text-white mt-4 uppercase">Distributed <br /> Consensus.</h3>
+                  </div>
+                  <div className="flex gap-12">
+                     <div className="space-y-1">
+                        <p className="font-mono text-[10px] text-white/20 uppercase">Nodes</p>
+                        <p className="text-2xl font-bold text-white">12,400+</p>
+                     </div>
+                     <div className="space-y-1">
+                        <p className="font-mono text-[10px] text-white/20 uppercase">Latency</p>
+                        <p className="text-2xl font-bold text-white">&lt; 12ms</p>
+                     </div>
+                  </div>
+               </div>
+               {/* Corner Brackets */}
+               <div className="absolute top-8 right-8 font-mono text-[10px] text-white/20">[ AUTO_SCALE: ON ]</div>
+            </div>
+
+            {/* Box 2: Compute Pipeline */}
+            <div className="lg:col-span-4 glass-card border-white/5 bg-primary/5 flex flex-col justify-center p-12 space-y-12">
+               <div>
+                  <span className="font-mono text-[10px] text-primary uppercase tracking-[0.4em]">02_Pipeline</span>
+                  <h3 className="text-3xl font-heading font-bold text-white mt-4 uppercase text-balance">Neural <br /> Compute <br /> Stack.</h3>
+               </div>
+               <div className="space-y-6">
+                  {[
+                    { label: 'Ingestion', tech: 'Kafka / gRPC' },
+                    { label: 'Process', tech: 'Rust Neural Core' },
+                    { label: 'Storage', tech: 'Vector / PG' }
+                  ].map((step) => (
+                    <div key={step.label} className="flex items-center justify-between border-b border-white/10 pb-4">
+                       <span className="font-mono text-[10px] text-white/40 uppercase">{step.label}</span>
+                       <span className="font-mono text-[10px] text-primary uppercase font-bold">{step.tech}</span>
+                    </div>
+                  ))}
+               </div>
+            </div>
+
+            {/* Box 3: Security Structure */}
+            <div className="lg:col-span-5 glass-card border-white/5 relative overflow-hidden group">
+               <img 
+                  src="https://images.unsplash.com/photo-1707730376818-a7a02fe896d5?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85" 
+                  alt="Security Structure"
+                  className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 opacity-40 group-hover:scale-110 transition-transform duration-1000"
+               />
+               <div className="absolute inset-0 p-12 flex flex-col justify-end z-10">
+                  <span className="font-mono text-[10px] text-primary uppercase tracking-[0.4em]">03_Security</span>
+                  <h3 className="text-3xl font-heading font-bold text-white mt-4 uppercase">Post-Quantum <br /> Shield.</h3>
+               </div>
+            </div>
+
+            {/* Box 4: Live Code Snippet */}
+            <div className="lg:col-span-7 glass-card border-white/5 bg-black p-8 font-mono text-xs overflow-hidden">
+               <div className="h-8 border-b border-white/10 flex items-center gap-2 mb-6">
+                  <div className="w-2 h-2 rounded-full bg-red-500/40" />
+                  <div className="w-2 h-2 rounded-full bg-yellow-500/40" />
+                  <div className="w-2 h-2 rounded-full bg-green-500/40" />
+                  <span className="ml-4 text-white/20 uppercase tracking-widest text-[8px]">consensus_engine.rs</span>
+               </div>
+               <div className="text-white/60 space-y-2">
+                  <p><span className="text-primary">pub async fn</span> initialize_consensus() {"{"}</p>
+                  <p className="pl-4 text-white/40">{"// Secure Handshake initialization"}</p>
+                  <p className="pl-4"><span className="text-primary">let</span> node_id = Node::new().generate_identity();</p>
+                  <p className="pl-4"><span className="text-primary">await!</span> node_id.broadcast_presence();</p>
+                  <p className="pl-4 text-white/40">{"// Protocol-Level Enforcement"}</p>
+                  <p className="pl-4">node_id.enforce_policy(Policy::<span className="text-primary">ZeroTrust</span>);</p>
+                  <p>{"}"}</p>
+               </div>
+               <div className="absolute bottom-4 right-8 text-[8px] text-white/10 uppercase tracking-[0.3em]">Compiled_Success_v4.2</div>
             </div>
          </div>
       </Section>
