@@ -43,7 +43,7 @@ export function TerminalForm() {
   }, [])
 
   return (
-    <div className="w-full max-w-4xl mx-auto glass-card bg-black/80 rounded-xl shadow-2xl border border-white/10 overflow-hidden font-mono text-sm">
+    <div className="w-full max-w-4xl mx-auto glass-card bg-black/80 rounded-xl shadow-2xl border border-white/10 overflow-hidden font-mono text-sm terminal-flicker">
       {/* Terminal Header */}
       <div className="h-10 bg-white/5 border-b border-white/10 flex items-center px-4 justify-between">
         <div className="flex space-x-2">
@@ -58,8 +58,9 @@ export function TerminalForm() {
       </div>
 
       {/* Terminal Body */}
-      <div className="p-8 h-[400px] overflow-y-auto custom-scrollbar text-white/70">
-        <div className="space-y-1">
+      <div className="p-8 h-[400px] overflow-y-auto custom-scrollbar text-white/70 relative">
+        <div className="scanline pointer-events-none" />
+        <div className="space-y-1 relative z-10">
           {history.map((line, i) => (
             <div key={i} className={line.startsWith('>') ? 'text-primary' : ''}>
               {line}

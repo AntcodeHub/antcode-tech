@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '../../utils/cn'
 import { Button } from '../ui/Button'
@@ -14,96 +15,140 @@ const navLinks = [
 ]
 
 export function Navbar() {
+  const [isHovered, setIsHovered] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      setIsScrolled(window.scrollY > 50)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false)
   }, [location])
 
   return (
-    <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
-        isScrolled
-          ? 'bg-dark-bg/80 backdrop-blur-lg border-white/10 py-3'
-          : 'bg-transparent border-transparent py-5'
-      )}
-    >
-      <div className="container-custom flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-xl">A</span>
-          </div>
-          <span className="font-heading font-bold text-xl tracking-tight text-white">
-            AntCode <span className="text-primary font-medium">Technology</span>
-          </span>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.href}
-              className={cn(
-                'text-sm font-medium transition-colors hover:text-primary',
-                location.pathname === link.href ? 'text-primary' : 'text-text/70'
-              )}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Button variant="primary" size="sm">
-            Get a Quote
-          </Button>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="lg:hidden text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
+    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-6 pointer-events-none">
+      <motion.nav
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        initial={false}
+        animate={{
+          width: isHovered || isMobileMenuOpen ? '100%' : 'auto',
+          maxWidth: isHovered || isMobileMenuOpen ? '1200px' : '60px',
+          paddingLeft: isHovered || isMobileMenuOpen ? '24px' : '10px',
+          paddingRight: isHovered || isMobileMenuOpen ? '24px' : '10px',
+        }}
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className={cn(
-          'fixed inset-0 top-[70px] bg-dark-bg/95 backdrop-blur-xl z-40 transition-transform duration-300 lg:hidden',
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          'pointer-events-auto h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-between overflow-hidden shadow-2xl transition-colors duration-500',
+          (isHovered || isScrolled) ? 'bg-black/60' : 'bg-white/5'
         )}
       >
-        <div className="flex flex-col items-center justify-center h-full space-y-8 p-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.href}
-              className={cn(
-                'text-2xl font-heading font-medium transition-colors',
-                location.pathname === link.href ? 'text-primary' : 'text-white'
-              )}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Button variant="primary" size="lg" className="w-full max-w-xs">
-            Get a Quote
-          </Button>
+        {/* Logo / Minimal Pill State */}
+        <Link to="/" className="flex items-center shrink-0">
+           <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center shrink-0">
+             <span className="text-white font-bold text-lg font-mono">A</span>
+           </div>
+           <AnimatePresence>
+             {(isHovered || isMobileMenuOpen) && (
+               <motion.span
+                 initial={{ opacity: 0, x: -10 }}
+                 animate={{ opacity: 1, x: 0 }}
+                 exit={{ opacity: 0, x: -10 }}
+                 className="ml-3 font-heading font-bold text-white tracking-tight whitespace-nowrap"
+               >
+                 AntCode <span className="text-primary font-medium">Technology</span>
+               </motion.span>
+             )}
+           </AnimatePresence>
+        </Link>
+
+        {/* Desktop Links (Visible on Hover) */}
+        <div className="hidden lg:flex items-center space-x-8 px-8">
+           <AnimatePresence>
+             {isHovered && (
+               <>
+                 {navLinks.map((link, i) => (
+                   <motion.div
+                     key={link.name}
+                     initial={{ opacity: 0, y: 10 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ delay: i * 0.05 }}
+                   >
+                     <Link
+                       to={link.href}
+                       className={cn(
+                         'text-xs font-mono uppercase tracking-widest transition-colors hover:text-primary',
+                         location.pathname === link.href ? 'text-primary' : 'text-white/60'
+                       )}
+                     >
+                       {link.name}
+                     </Link>
+                   </motion.div>
+                 ))}
+                 <motion.div
+                   initial={{ opacity: 0, scale: 0.8 }}
+                   animate={{ opacity: 1, scale: 1 }}
+                 >
+                   <Button variant="primary" size="sm" className="h-8 rounded-full text-[10px] uppercase tracking-widest px-6">
+                     Execute_Run
+                   </Button>
+                 </motion.div>
+               </>
+             )}
+           </AnimatePresence>
         </div>
-      </div>
-    </nav>
+
+        {/* Mobile Toggle */}
+        <div className="lg:hidden flex items-center">
+           <AnimatePresence>
+             {isHovered && (
+               <motion.button
+                 initial={{ opacity: 0 }}
+                 animate={{ opacity: 1 }}
+                 className="text-white ml-2"
+                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+               >
+                 {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+               </motion.button>
+             )}
+           </AnimatePresence>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="fixed inset-0 top-0 bg-black/95 backdrop-blur-2xl z-[-1] flex flex-col items-center justify-center space-y-8 p-12"
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                className={cn(
+                  'text-3xl font-heading font-bold transition-colors',
+                  location.pathname === link.href ? 'text-primary' : 'text-white/40'
+                )}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Button variant="primary" size="lg" className="w-full max-w-xs rounded-full">
+              Get a Quote
+            </Button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }

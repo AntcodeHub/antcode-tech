@@ -1,6 +1,7 @@
 import { services } from '../../data/services'
 import { ServiceCard } from './ServiceCard'
 import { Section } from '../layout/Section'
+import { motion } from 'framer-motion'
 
 export function ServicesGrid() {
   return (
@@ -31,10 +32,17 @@ export function ServicesGrid() {
 
         {/* Scrolling Right Column */}
         <div className="lg:col-span-8">
-          {services.slice(0, 4).map((service) => (
-            <div key={service.id} className="min-h-screen flex items-center p-6 lg:p-24 border-b border-white/5">
+          {services.slice(0, 4).map((service, index) => (
+            <motion.div 
+               key={service.id} 
+               initial={{ opacity: 0, y: 50 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true, margin: "-100px" }}
+               transition={{ duration: 0.8, delay: index * 0.1 }}
+               className="min-h-screen flex items-center p-6 lg:p-24 border-b border-white/5"
+            >
                <ServiceCard {...service} />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

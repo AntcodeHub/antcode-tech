@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 interface ServiceCardProps {
   title: string
   description: string
@@ -7,7 +9,10 @@ interface ServiceCardProps {
 
 export function ServiceCard({ title, description, icon: Icon, technologies }: ServiceCardProps) {
   return (
-    <div className="group relative flex flex-col h-full bg-white/[0.03] border border-white/5 p-12 transition-all hover:bg-white/[0.05] glass-highlight">
+    <motion.div 
+      whileHover={{ scale: 1.02, y: -5 }}
+      className="group relative flex flex-col h-full bg-white/[0.03] border border-white/5 p-12 transition-all hover:bg-white/[0.05] glass-highlight"
+    >
       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-8 border border-primary/20 group-hover:scale-110 transition-transform">
         <Icon size={24} className="text-primary" />
       </div>
@@ -26,6 +31,6 @@ export function ServiceCard({ title, description, icon: Icon, technologies }: Se
           </span>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }

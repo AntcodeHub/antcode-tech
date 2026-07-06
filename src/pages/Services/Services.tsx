@@ -7,28 +7,26 @@ import { Button } from '../../components/ui/Button'
 
 export default function Services() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative">
+      <div className="fixed inset-0 halftone-bg opacity-[0.02] pointer-events-none" />
+
       {/* Hero */}
-      <div className="bg-white/[0.02] py-24 border-b border-white/5 relative overflow-hidden">
+      <div className="pt-40 pb-24 border-b border-white/5 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
-        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto">
-          <motion.h1
+        <div className="container-custom relative z-10">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-heading font-bold text-white mb-8"
           >
-            Turning Complexity into <br />
-            <span className="text-primary">Elegance</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-muted leading-relaxed"
-          >
-            From custom enterprise software to cutting-edge AI integrations, we deliver 
-            solutions that solve your toughest business challenges.
-          </motion.p>
+            <span className="font-mono text-primary text-[10px] uppercase tracking-[0.4em] mb-6 block">
+              Service Infrastructure
+            </span>
+            <h1 className="text-6xl md:text-8xl font-heading font-bold text-white leading-tight">
+              TURNING <br />
+              <span className="text-white/40">COMPLEXITY</span> <br />
+              INTO ELEGANCE.
+            </h1>
+          </motion.div>
         </div>
       </div>
 

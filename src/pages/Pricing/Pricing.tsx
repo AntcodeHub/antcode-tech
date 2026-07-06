@@ -83,12 +83,12 @@ export default function Pricing() {
           {tiers.map((tier, index) => (
             <motion.div
               key={tier.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`relative glass-card p-10 flex flex-col h-full ${
-                tier.popular ? 'border-primary/50 shadow-2xl shadow-primary/10' : ''
+              className={`relative bg-white/[0.02] border border-white/5 p-12 flex flex-col h-full group hover:bg-white/[0.04] transition-all duration-500 ${
+                tier.popular ? 'border-primary/40 shadow-2xl shadow-primary/5' : ''
               }`}
             >
               {tier.popular && (
@@ -96,7 +96,7 @@ export default function Pricing() {
                   Most Popular
                 </div>
               )}
-              
+
               <div className="mb-8">
                 <h3 className="text-2xl font-heading font-bold text-white mb-2">{tier.name}</h3>
                 <div className="flex items-baseline space-x-1">
@@ -108,11 +108,17 @@ export default function Pricing() {
               </div>
 
               <div className="space-y-4 mb-10 flex-grow">
-                {tier.features.map((feature) => (
-                  <div key={feature} className="flex items-start space-x-3 text-sm">
+                {tier.features.map((feature, i) => (
+                  <motion.div 
+                    key={feature} 
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + (i * 0.05) }}
+                    className="flex items-start space-x-3 text-sm"
+                  >
                     <Check className="text-primary shrink-0" size={18} />
                     <span className="text-text/80">{feature}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 

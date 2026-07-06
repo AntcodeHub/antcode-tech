@@ -9,13 +9,15 @@ interface SectionProps {
 
 export function Section({ children, className, id, container = true }: SectionProps) {
   return (
-    <section id={id} className={cn("py-20 lg:py-32 overflow-hidden", className)}>
+    <section id={id} className={cn("py-24 lg:py-40 relative overflow-hidden", className)}>
       {container ? (
-        <div className="container-custom">
+        <div className="container-custom relative z-10">
           {children}
         </div>
       ) : (
-        children
+        <div className="relative z-10">
+          {children}
+        </div>
       )}
     </section>
   )

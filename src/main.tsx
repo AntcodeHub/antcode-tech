@@ -22,6 +22,16 @@ const Layout = () => (
       </Suspense>
     </main>
     <Footer />
+    
+    {/* Page Grid Lines */}
+    <div className="fixed inset-0 pointer-events-none z-[-1] opacity-[0.03]">
+       <div className="container-custom h-full flex justify-between">
+          <div className="w-px h-full bg-white" />
+          <div className="w-px h-full bg-white" />
+          <div className="w-px h-full bg-white" />
+          <div className="w-px h-full bg-white" />
+       </div>
+    </div>
   </div>
 )
 

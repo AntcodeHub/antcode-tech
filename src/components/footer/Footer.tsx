@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SiGithub, SiInstagram, SiX, SiCloudflare, SiVercel } from '@icons-pack/react-simple-icons'
+import { motion } from 'framer-motion'
 
 const footerLinks = {
   company: [
@@ -58,12 +59,18 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-6">
             <h4 className="font-mono text-[10px] uppercase text-white/30 tracking-[0.2em]">Systems</h4>
             <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
+              {footerLinks.services.map((link, i) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                >
                   <Link to={link.href} className="text-muted text-sm hover:text-white transition-colors">
                     {link.name}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
@@ -71,12 +78,18 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-6">
             <h4 className="font-mono text-[10px] uppercase text-white/30 tracking-[0.2em]">Organization</h4>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
+              {footerLinks.company.map((link, i) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                >
                   <Link to={link.href} className="text-muted text-sm hover:text-white transition-colors">
                     {link.name}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
@@ -105,10 +118,15 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center space-x-4 opacity-30 grayscale hover:opacity-100 transition-all cursor-default">
+          <motion.div 
+             initial={{ opacity: 0 }}
+             whileInView={{ opacity: 1 }}
+             viewport={{ once: true }}
+             className="flex items-center space-x-4 opacity-30 grayscale hover:opacity-100 transition-all cursor-default"
+          >
              <SiCloudflare size={20} />
              <SiVercel size={18} />
-          </div>
+          </motion.div>
           <p className="text-white/10 text-[10px] font-mono uppercase tracking-widest">
             © {new Date().getFullYear()} ANTCODE_TECH // VER_4.2.0_STABLE
           </p>

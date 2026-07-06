@@ -64,12 +64,12 @@ export function Hero() {
         {/* Right Side: Browser Mockup Bleed */}
         <div className="lg:col-span-6 relative">
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 100, rotateY: 20 }}
+            animate={{ opacity: 1, x: 0, rotateY: 0 }}
             transition={{ duration: 1.2, delay: 0.4, ease: "circOut" }}
-            className="lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 w-full lg:w-[150%] aspect-video lg:aspect-square"
+            className="lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 w-full lg:w-[150%] aspect-video lg:aspect-square [perspective:1000px]"
           >
-            <div className="w-full h-full bg-[#0D0D0D] border border-white/10 rounded-tl-2xl shadow-2xl overflow-hidden glass-highlight">
+            <div className="w-full h-full bg-[#0D0D0D] border border-white/10 rounded-tl-2xl shadow-2xl overflow-hidden glass-highlight group">
               {/* Browser Chrome */}
               <div className="h-10 border-b border-white/10 bg-white/5 flex items-center px-4 space-x-2">
                 <div className="flex space-x-1.5">
@@ -85,12 +85,29 @@ export function Hero() {
               </div>
               
               {/* Content: Code Editor Image */}
-              <div className="p-1 h-full">
+              <div className="p-1 h-full relative">
                 <img 
                   src="https://images.unsplash.com/photo-1591439657848-9f4b9ce436b9?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&q=85" 
                   alt="AntCode Architecture - Riku Lu on Unsplash"
-                  className="w-full h-full object-cover opacity-80"
+                  className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000"
                 />
+                
+                {/* Floating UI Elements over image */}
+                <motion.div 
+                   animate={{ y: [0, -10, 0] }}
+                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                   className="absolute top-20 left-20 glass-card px-4 py-2 border-primary/20 bg-primary/5"
+                >
+                   <span className="text-[10px] font-mono text-primary uppercase tracking-widest">DEPLOY_ACTIVE</span>
+                </motion.div>
+                
+                <motion.div 
+                   animate={{ y: [0, 10, 0] }}
+                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                   className="absolute bottom-40 right-20 glass-card px-4 py-2 border-white/10"
+                >
+                   <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">LATENCY: 14ms</span>
+                </motion.div>
               </div>
             </div>
           </motion.div>
@@ -99,6 +116,22 @@ export function Hero() {
 
       {/* Background Decor */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-dark-bg to-transparent z-20" />
+      
+      {/* Scroll Indicator */}
+      <motion.div 
+         animate={{ y: [0, 10, 0] }}
+         transition={{ duration: 2, repeat: Infinity }}
+         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center"
+      >
+         <span className="font-mono text-[8px] uppercase tracking-[0.4em] text-white/20 mb-4">SCROLL_FOR_INTEL</span>
+         <div className="w-px h-12 bg-white/10 relative">
+            <motion.div 
+               animate={{ top: ['0%', '100%'], opacity: [0, 1, 0] }}
+               transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+               className="absolute left-0 w-full h-1/3 bg-primary" 
+            />
+         </div>
+      </motion.div>
     </div>
   )
 }

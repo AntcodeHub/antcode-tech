@@ -36,12 +36,19 @@ export function FAQ() {
 
       <div className="max-w-3xl mx-auto space-y-4">
         {faqs.map((faq, index) => (
-          <div key={index} className="glass-card overflow-hidden">
+          <motion.div 
+            key={index} 
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="glass-card overflow-hidden bg-white/[0.02] border-white/5"
+          >
             <button
-              className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
+              className="w-full px-8 py-8 flex items-center justify-between text-left hover:bg-white/[0.03] transition-colors group"
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
             >
-              <span className="text-lg font-heading font-medium text-white">{faq.question}</span>
+              <span className="text-lg font-heading font-medium text-white group-hover:text-primary transition-colors">{faq.question}</span>
               {openIndex === index ? (
                 <Minus size={20} className="text-primary" />
               ) : (
@@ -62,7 +69,7 @@ export function FAQ() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </motion.div>
         ))}
       </div>
     </Section>
