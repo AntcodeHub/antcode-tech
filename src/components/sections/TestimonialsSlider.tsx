@@ -15,7 +15,7 @@ export function TestimonialsSlider() {
   }, [])
 
   return (
-    <Section className="bg-white/[0.01] border-y border-white/5">
+    <Section className="bg-white/1 border-y border-white/5">
       <div className="mb-16 text-center">
         <span className="font-mono text-primary text-[10px] uppercase tracking-[0.4em] mb-6 block">
           Client Stories
@@ -25,7 +25,7 @@ export function TestimonialsSlider() {
         </h2>
       </div>
 
-      <div className="max-w-4xl mx-auto relative min-h-[280px]">
+      <div className="max-w-4xl mx-auto relative min-h-70">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}

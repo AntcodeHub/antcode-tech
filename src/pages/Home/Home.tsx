@@ -13,6 +13,8 @@ import { CommunityPreview } from '../../components/sections/CommunityPreview'
 import { BlogPreview } from '../../components/sections/BlogPreview'
 import { FAQ } from '../../components/faq/FAQ'
 import { FinalCTA } from '../../components/sections/FinalCTA'
+// import { ClientLogos } from '../../components/sections/ClientLogos'
+
 
 export default function Home() {
   return (
@@ -20,6 +22,7 @@ export default function Home() {
       <div className="fixed inset-0 pointer-events-none opacity-[0.015] z-50 halftone-bg" />
 
       <Hero />
+      {/* <ClientLogos /> */}
       <TrustLogos />
       <StatsSection />
       <AboutPreview />
@@ -29,6 +32,7 @@ export default function Home() {
       <ProjectsCarousel />
       <IndustriesGrid />
       <ProcessTimeline />
+      
       <TestimonialsSlider />
       <CommunityPreview />
       <BlogPreview />

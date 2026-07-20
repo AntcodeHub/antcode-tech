@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown, Search } from 'lucide-react'
 import { cn } from '../../utils/cn'
 import { Button } from '../ui/Button'
+import { ThemeToggle } from '../ui/ThemeToggle'
+import { SearchModal } from '../ui/SearchModal'
 
 const primaryLinks = [
   { name: 'Home', href: '/' },
@@ -30,6 +32,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [moreOpen, setMoreOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -44,6 +47,20 @@ export function Navbar() {
     setIsMobileMenuOpen(false)
     setMoreOpen(false)
   }, [location])
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        setIsSearchOpen(true)
+      }
+      if (e.key === 'Escape') {
+        setIsSearchOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
 
   return (
     <>
@@ -69,11 +86,11 @@ export function Navbar() {
         >
           {/* Logo / Minimal Pill State */}
           {(!isHovered && !isMobileMenuOpen) ? (
-              
-                <span className="text-white font-bold text-lg">
-                   Antcode <span className="text-primary font-medium">Technology</span>
-                </span>   
-            
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-white font-bold text-lg">
+                 Antcode <span className="text-primary font-medium">Technology</span>
+              </span>
+            </div>
           ) : (
             <Link to="/" className="flex items-center shrink-0">
               <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center shrink-0">
@@ -155,7 +172,15 @@ export function Navbar() {
                      initial={{ opacity: 0, scale: 0.8 }}
                      animate={{ opacity: 1, scale: 1 }}
                      transition={{ delay: 0.35 }}
+                     className="flex items-center gap-2"
                    >
+                     <ThemeToggle />
+                     <button
+                       onClick={() => setIsSearchOpen(true)}
+                       className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:border-primary/30 transition-colors"
+                     >
+                       <Search size={18} className="text-white/60" />
+                     </button>
                      <Button asChild variant="primary" size="sm" className="h-8 rounded-full text-[10px] uppercase tracking-widest px-6">
                        <Link to="/contact">Contact Us</Link>
                      </Button>
@@ -190,26 +215,48 @@ export function Navbar() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="fixed inset-0 top-0 bg-black/95 backdrop-blur-2xl z-40 flex flex-col items-center justify-center space-y-8 p-12"
+            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            className="fixed inset-0 top-0 bg-black/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-center space-y-6 p-6"
           >
-            {[...primaryLinks, ...moreLinks].map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className={cn(
-                  'text-3xl font-heading font-bold transition-colors',
-                  location.pathname === link.href ? 'text-primary' : 'text-white/40'
-                )}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Button asChild variant="primary" size="lg" className="w-full max-w-xs rounded-full">
+            <div className="w-full max-w-md space-y-2">
+              {primaryLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={cn(
+                    'block text-center text-2xl font-heading font-bold py-4 px-6 rounded-xl transition-all',
+                    location.pathname === link.href 
+                      ? 'text-primary bg-primary/10' 
+                      : 'text-white/40 hover:text-white hover:bg-white/5'
+                  )}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <div className="border-t border-white/10 my-4" />
+              {moreLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={cn(
+                    'block text-center text-xl font-heading font-medium py-3 px-6 rounded-lg transition-all',
+                    location.pathname === link.href 
+                      ? 'text-primary bg-primary/10' 
+                      : 'text-white/40 hover:text-white hover:bg-white/5'
+                  )}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+            <Button asChild variant="primary" size="lg" className="w-full max-w-xs rounded-full font-mono uppercase tracking-widest mt-8">
               <Link to="/contact">Start Project</Link>
             </Button>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   )
 }

@@ -1,6 +1,6 @@
 import { Section } from '../../components/layout/Section'
 import { PageHero } from '../../components/layout/PageHero'
-import { TerminalForm } from '../../components/contact/TerminalForm'
+import { ContactForm } from '../../components/contact/ContactForm'
 import { Button } from '../../components/ui/Button'
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react'
 
@@ -17,7 +17,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
             <h2 className="text-2xl font-heading font-bold text-white mb-8">Send a Message</h2>
-            <TerminalForm />
+            <ContactForm />
           </div>
 
           <div className="space-y-8">

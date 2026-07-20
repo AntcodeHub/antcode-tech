@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Section } from '../layout/Section'
+import { ScrollReveal } from '../ui/ScrollReveal'
 
 const milestones = [
   { id:1, year: '2023', title: 'Founded', description: 'Antcode Technology born in Douala with a mission to build Africa\'s tech future.' },
@@ -15,7 +16,7 @@ export function AboutPreview() {
   return (
     <Section id="about" className="bg-white/[0.01]">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-        <div className="lg:col-span-4">
+        <ScrollReveal direction="left" className="lg:col-span-4">
           <span className="font-mono text-primary text-[10px] uppercase tracking-[0.4em] mb-6 block">
             Our Story
           </span>
@@ -32,28 +33,21 @@ export function AboutPreview() {
           >
             Learn More →
           </Link>
-        </div>
+        </ScrollReveal>
 
-        <div className="lg:col-span-8 relative">
+        <ScrollReveal direction="right" className="lg:col-span-8 relative">
           <div className="absolute left-4 top-0 bottom-0 w-px bg-white/10 hidden md:block" />
           <div className="space-y-12">
             {milestones.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="relative pl-12 md:pl-16"
-              >
+              <ScrollReveal key={item.id} delay={index * 0.1} direction="right" className="relative pl-12 md:pl-16">
                 <div className="absolute left-2.5 md:left-2 top-1 w-3 h-3 bg-primary rounded-full border-2 border-dark-bg hidden md:block" />
                 <span className="font-mono text-primary text-sm font-bold">{item.year}</span>
                 <h3 className="text-xl font-heading font-bold text-white mt-1 mb-2">{item.title}</h3>
                 <p className="text-muted text-sm leading-relaxed">{item.description}</p>
-              </motion.div>
+              </ScrollReveal>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </Section>
   )
