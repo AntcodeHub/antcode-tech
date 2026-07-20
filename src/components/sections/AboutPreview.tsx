@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import { Section } from '../layout/Section'
 
 const milestones = [
-  { year: '2019', title: 'Founded', description: 'Antcode Technology born in Douala with a mission to build Africa\'s tech future.' },
-  { year: '2020', title: 'First Products', description: 'Delivered first enterprise solutions for healthcare and education sectors.' },
-  { year: '2021', title: 'Community Launch', description: 'Antcode Technology Community launched with 100 founding members across 5 countries.' },
-  { year: '2022', title: 'Academy Opens', description: 'Antcode Technology Academy begins training the next generation of African engineers.' },
-  { year: '2023', title: 'Open Source Initiative', description: 'Launched multiple open-source projects, reaching 1K GitHub stars in 6 months.' },
-  { year: '2024', title: 'Global Expansion', description: 'Expanded operations to 10+ countries with 500+ community members.' },
+  { id:1, year: '2023', title: 'Founded', description: 'Antcode Technology born in Douala with a mission to build Africa\'s tech future.' },
+  { id:2, year: '2024', title: 'First Products', description: 'Delivered first smart tracking solution for institutions.' },
+  { id:3, year: '2024', title: 'Community Launch', description: 'Antcode Technology Community launched with 100 founding members across the country' },
+  { id:4, year: '2025', title: 'Cohort Opens', description: 'Antcode Technology Cohort begins training the next generation of African engineers.' },
+  { id:5, year: '2025', title: 'Open Source Initiative', description: 'Launched multiple open-source projects in GitHub.' },
+  { id:6, year: '2026', title: 'Global Expansion', description: 'Expanded operations to 10+ Areas/tech sectors with 500+ community members.' },
 ]
 
 export function AboutPreview() {
@@ -23,7 +23,7 @@ export function AboutPreview() {
             About <span className="text-white/40">Antcode Technology</span>
           </h2>
           <p className="text-muted leading-relaxed mb-8">
-            We're building the technology infrastructure Africa needs — 
+            We're building the technology infrastructure Africa needs
             from enterprise software to developer communities and education.
           </p>
           <Link
@@ -39,7 +39,7 @@ export function AboutPreview() {
           <div className="space-y-12">
             {milestones.map((item, index) => (
               <motion.div
-                key={item.year}
+                key={item.id}
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}

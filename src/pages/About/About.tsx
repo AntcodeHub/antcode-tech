@@ -11,11 +11,12 @@ const values = [
 ]
 
 const milestones = [
-  { year: '2019', title: 'Founded in Douala', desc: 'Antcode Technology born with a mission to build Africa\'s tech future.' },
-  { year: '2021', title: 'Community Launch', desc: 'AntCode Community launched across 5 countries.' },
-  { year: '2022', title: 'Academy Opens', desc: 'Training the next generation of African engineers.' },
-  { year: '2023', title: 'Open Source Initiative', desc: 'Launched multiple open-source projects to the world.' },
-  { year: '2024', title: 'Global Expansion', desc: '10+ countries, 500+ community members.' },
+  { id:1, year: '2023', title: 'Founded', description: 'Antcode Technology born in Douala with a mission to build Africa\'s tech future.' },
+  { id:2, year: '2024', title: 'First Products', description: 'Delivered first smart tracking solution for institutions.' },
+  { id:3, year: '2024', title: 'Community Launch', description: 'Antcode Technology Community launched with 100 founding members across the country' },
+  { id:4, year: '2025', title: 'Cohort Opens', description: 'Antcode Technology Cohort begins training the next generation of African engineers.' },
+  { id:5, year: '2025', title: 'Open Source Initiative', description: 'Launched multiple open-source projects in GitHub.' },
+  { id:6, year: '2026', title: 'Global Expansion', description: 'Expanded operations to 10+ Areas/tech sectors with 500+ community members.' },
 ]
 
 export default function About() {
@@ -65,7 +66,7 @@ export default function About() {
                 <div className="absolute left-2.5 top-1 w-3 h-3 bg-primary rounded-full border-2 border-dark-bg hidden md:block" />
                 <span className="font-mono text-primary font-bold">{item.year}</span>
                 <h3 className="text-xl font-heading font-bold text-white mt-1 mb-2">{item.title}</h3>
-                <p className="text-muted text-sm">{item.desc}</p>
+                <p className="text-muted text-sm">{item.description}</p>
               </motion.div>
             ))}
           </div>

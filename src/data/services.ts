@@ -182,34 +182,7 @@ We work with AWS, Azure, Google Cloud, Docker, Kubernetes, and Terraform to buil
 
 We use Figma, Sketch, Adobe XD, and various prototyping tools to create exceptional user experiences.`,
   },
-  {
-    id: 'devops',
-    title: 'DevOps',
-    description: 'CI/CD pipelines, infrastructure as code, and automated deployment workflows.',
-    icon: RefreshCw,
-    technologies: ['Terraform', 'GitHub Actions', 'ArgoCD'],
-    color: 'from-blue-500/20 to-blue-600/20',
-    fullDescription: `Our DevOps services help you achieve faster, more reliable software delivery through automation and best practices.
-
-## What We Offer
-
-- **CI/CD Implementation**: Automated build, test, and deployment pipelines
-- **Infrastructure as Code**: Reproducible infrastructure management
-- **Monitoring & Alerting**: Real-time system health monitoring
-- **Site Reliability**: High availability and disaster recovery planning
-
-## Our Process
-
-1. Current workflow assessment
-2. Pipeline design and implementation
-3. Automation and optimization
-4. Monitoring and alerting setup
-5. Continuous improvement
-
-## Technologies
-
-We specialize in Terraform, GitHub Actions, GitLab CI, ArgoCD, Prometheus, and Grafana for comprehensive DevOps solutions.`,
-  },
+ 
   {
     id: 'iot',
     title: 'IoT Solutions',
@@ -294,88 +267,6 @@ We use Python, Pandas, NumPy, Spark, Tableau, and Power BI to deliver comprehens
 
 We work with Solidity, Ethereum, Polygon, Web3.js, and various blockchain development frameworks.`,
   },
-  {
-    id: 'digital-transformation',
-    title: 'Digital Transformation',
-    description: 'End-to-end modernization of legacy systems and business processes.',
-    icon: RefreshCw,
-    technologies: ['Strategy', 'Migration', 'Integration'],
-    color: 'from-violet-500/20 to-violet-600/20',
-    fullDescription: `Our digital transformation services help you modernize your business for the digital age.
-
-## What We Offer
-
-- **Strategy Development**: Comprehensive digital transformation roadmaps
-- **Legacy Migration**: Modernize existing systems and applications
-- **Process Automation**: Streamline business processes with technology
-- **Change Management**: Ensure smooth adoption of new technologies
-
-## Our Process
-
-1. Current state assessment
-2. Vision and strategy development
-3. Implementation planning
-4. Execution and change management
-5. Measurement and optimization
-
-## Technologies
-
-We combine strategy, migration expertise, and integration capabilities to deliver successful digital transformations.`,
-  },
-  {
-    id: 'consulting',
-    title: 'Software Consulting',
-    description: 'Expert guidance on technology strategy, architecture, and scaling.',
-    icon: MessageSquareCode,
-    technologies: ['Architecture', 'Strategy', 'Scalability'],
-    color: 'from-slate-500/20 to-slate-600/20',
-    fullDescription: `Our software consulting services provide expert guidance to help you make informed technology decisions.
-
-## What We Offer
-
-- **Technology Strategy**: Align technology with business goals
-- **Architecture Review**: Assess and improve system architecture
-- **Performance Optimization**: Enhance system performance and scalability
-- **Team Augmentation**: Expert developers to strengthen your team
-
-## Our Process
-
-1. Assessment and analysis
-2. Recommendation development
-3. Implementation planning
-4. Knowledge transfer
-5. Ongoing support
-
-## Technologies
-
-We provide expertise across modern technology stacks, cloud platforms, and development methodologies.`,
-  },
-  {
-    id: 'custom-software',
-    title: 'Custom Software',
-    description: 'Bespoke enterprise solutions tailored to your unique business requirements.',
-    icon: Code2,
-    technologies: ['Java', 'Python', '.NET', 'Go'],
-    color: 'from-blue-500/20 to-blue-600/20',
-    fullDescription: `Our custom software development services deliver tailored solutions that address your specific business challenges.
-
-## What We Offer
-
-- **Enterprise Applications**: Scalable software for large organizations
-- **Business Process Automation**: Streamline operations with custom solutions
-- **Integration Services**: Connect disparate systems and data sources
-- **Legacy Modernization**: Update and improve existing systems
-
-## Our Process
-
-1. Requirements gathering and analysis
-2. Solution design and architecture
-3. Agile development
-4. Testing and quality assurance
-5. Deployment and support
-
-## Technologies
-
-We work with Java, Python, .NET, Go, and various other technologies to build robust custom software solutions.`,
-  },
+  
+  
 ]

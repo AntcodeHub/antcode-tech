@@ -26,8 +26,8 @@ export default function Contact() {
               <div className="space-y-6">
                 {[
                   { icon: Mail, label: 'Email', value: 'hello@antcode.tech', href: 'mailto:hello@antcode.tech' },
-                  { icon: Phone, label: 'Phone / WhatsApp', value: '+237 6XX XXX XXX', href: 'https://wa.me/237600000000' },
-                  { icon: MapPin, label: 'Office', value: 'Douala, Cameroon', href: '#' },
+                  { icon: Phone, label: 'Phone / WhatsApp', value: '+237 677 020 718', href: 'https://wa.me/237677020718' },
+                  { icon: MapPin, label: 'Office', value: 'Bamenda, Cameroon', href: '#' },
                   { icon: MessageCircle, label: 'Community', value: 'Discord & Telegram', href: '/community' },
                 ].map((item) => (
                   <a key={item.label} href={item.href} className="flex items-start gap-4 glass-card p-5 hover:border-primary/30 transition-all group">

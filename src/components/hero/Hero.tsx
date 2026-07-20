@@ -53,7 +53,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg text-muted max-w-lg mb-12 leading-relaxed"
           >
-            Antcode Technology is the home of Africa's technology ecosystem — engineering 
+            Antcode Technology is the home of Africa's technology ecosystem engineering 
             enterprise solutions, nurturing communities, and training the next 
             generation of builders.
           </motion.p>

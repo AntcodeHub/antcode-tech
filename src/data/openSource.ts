@@ -1,12 +1,12 @@
 export const openSourceProjects = [
   {
-    id: 'afri-ui',
-    name: 'AfriUI',
-    description: 'React component library designed for African market UX patterns and accessibility.',
+    id: 'nextpy-framework',
+    name: 'Nextpy Framework',
+    description: 'In colab with RAHIMSTUDIOS, creating the Python Full Stack Web Framework',
     stars: 890,
     forks: 124,
-    language: 'TypeScript',
-    href: '/open-source#afri-ui',
+    language: 'Python',
+    href: 'https://github.com/RahimStudios/nextpy-framework',
   },
   {
     id: 'secure-api-kit',

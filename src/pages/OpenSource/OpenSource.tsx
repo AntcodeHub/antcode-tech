@@ -4,6 +4,7 @@ import { Section } from '../../components/layout/Section'
 import { Button } from '../../components/ui/Button'
 import { openSourceProjects } from '../../data/openSource'
 import { Star, GitFork, ExternalLink } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function OpenSource() {
   return (
@@ -47,9 +48,11 @@ export default function OpenSource() {
           <p className="text-muted text-lg max-w-2xl mx-auto mb-8">
             Join our community of developers building tools and frameworks for the global developer community.
           </p>
-          <Button variant="primary" className="font-mono uppercase tracking-widest text-xs">
-            View All Projects on GitHub
-          </Button>
+          <Link target='blank' to={'https://github.com/AntcodeHub'}>
+            <Button  variant="primary" className="font-mono uppercase tracking-widest text-xs">
+              View All Projects on GitHub
+            </Button>
+          </Link>
         </div>
       </Section>
     </div>

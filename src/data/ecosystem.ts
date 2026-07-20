@@ -19,15 +19,7 @@ export const ecosystemUnits = [
     color: 'from-secondary/20 to-secondary/5',
     accent: '#7C3AED',
   },
-  {
-    id: 'academy',
-    title: 'Antcode Technology Academy',
-    description: 'Structured learning paths, mentorship, and certifications for the next generation of builders.',
-    icon: GraduationCap,
-    href: '/academy',
-    color: 'from-accent/20 to-accent/5',
-    accent: '#06B6D4',
-  },
+ 
   {
     id: 'open-source',
     title: 'Open Source',

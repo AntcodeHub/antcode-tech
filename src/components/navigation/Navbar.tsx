@@ -9,7 +9,6 @@ const primaryLinks = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
   { name: 'Community', href: '/community' },
-  { name: 'Academy', href: '/academy' },
   { name: 'Technology', href: '/technology' },
 ]
 
@@ -19,7 +18,7 @@ const moreLinks = [
   { name: 'Industries', href: '/industries' },
   { name: 'Open Source', href: '/open-source' },
   { name: 'Projects', href: '/projects' },
-  { name: 'Portfolio', href: '/portfolio' },
+  // { name: 'Portfolio', href: '/portfolio' },
   { name: 'Events', href: '/events' },
   { name: 'Blog', href: '/blog' },
   { name: 'Careers', href: '/careers' },
@@ -58,21 +57,23 @@ export function Navbar() {
             maxWidth: isHovered || isMobileMenuOpen ? '1200px' : '64px',
             paddingLeft: isHovered || isMobileMenuOpen ? '24px' : '0px',
             paddingRight: isHovered || isMobileMenuOpen ? '24px' : '0px',
+            minWidth: !isHovered || !isMobileMenuOpen ? '250px': '0px',
+            
           }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className={cn(
-            'pointer-events-auto h-16 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center shadow-2xl transition-colors duration-500 relative',
+            'pointer-events-auto h-18  bg-white/10 backdrop-blur-xl border border-white/20 rounded-4xl flex items-center text-center shadow-2xl transition-colors duration-500 relative ',
             (isHovered || isScrolled) ? 'bg-black/60' : 'bg-white/5',
-            !isHovered && !isMobileMenuOpen ? 'justify-start' : 'justify-between'
+            !isHovered && !isMobileMenuOpen ? 'justify-center' : 'justify-between'
           )}
         >
           {/* Logo / Minimal Pill State */}
           {(!isHovered && !isMobileMenuOpen) ? (
-            <Link to="/" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg font-mono">A</span>
-              </div>
-            </Link>
+              
+                <span className="text-white font-bold text-lg">
+                   Antcode <span className="text-primary font-medium">Technology</span>
+                </span>   
+            
           ) : (
             <Link to="/" className="flex items-center shrink-0">
               <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center shrink-0">
@@ -130,7 +131,7 @@ export function Navbar() {
                            initial={{ opacity: 0, y: 10 }}
                            animate={{ opacity: 1, y: 0 }}
                            exit={{ opacity: 0, y: 10 }}
-                           className="absolute top-full right-0 mt-2 w-56 glass-card p-2 border-white/10 shadow-2xl z-[100]"
+                           className="absolute top-full right-0 mt-2 w-56 glass-card p-2 border-white/10 shadow-2xl z-100 bg-black/60"
                          >
                            {moreLinks.map((link) => (
                              <Link
@@ -156,7 +157,7 @@ export function Navbar() {
                      transition={{ delay: 0.35 }}
                    >
                      <Button asChild variant="primary" size="sm" className="h-8 rounded-full text-[10px] uppercase tracking-widest px-6">
-                       <Link to="/contact">Start Project</Link>
+                       <Link to="/contact">Contact Us</Link>
                      </Button>
                    </motion.div>
                  </>
