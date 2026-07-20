@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+
 import { Link } from 'react-router-dom'
 import { Section } from '../layout/Section'
 import { ScrollReveal } from '../ui/ScrollReveal'

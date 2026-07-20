@@ -9,15 +9,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20">
           <div className="lg:col-span-4 space-y-6">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl font-mono">A</span>
-              </div>
+              
               <span className="font-heading font-bold text-xl text-white">
                 Antcode <span className="text-primary">Technology</span>
               </span>
             </Link>
             <p className="text-muted leading-relaxed max-w-sm">
-              Building Africa's future through technology — engineering, community, 
+              Building Africa's future through technology engineering, community, 
               education, and open source under one ecosystem.
             </p>
             <div className="flex items-center gap-4">
@@ -71,11 +69,11 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <h4 className="font-mono text-[10px] uppercase text-white/30 tracking-[0.2em]">Contact</h4>
             <div className="space-y-3 font-mono text-xs">
-              <p className="text-muted">Douala, Cameroon</p>
+              <p className="text-muted">Bamenda, Cameroon</p>
               <a href="mailto:hello@antcode.tech" className="text-muted hover:text-white transition-colors block">
                 hello@antcode.tech
               </a>
-              <a href="https://wa.me/237600000000" className="text-muted hover:text-white transition-colors block">
+              <a href="https://wa.me/237677020718" className="text-muted hover:text-white transition-colors block">
                 WhatsApp
               </a>
             </div>

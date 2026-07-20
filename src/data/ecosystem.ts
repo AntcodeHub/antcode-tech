@@ -1,4 +1,4 @@
-import { Users, Cpu, GraduationCap, GitBranch, FlaskConical } from 'lucide-react'
+import { Users, Cpu, GitBranch, FlaskConical } from 'lucide-react'
 
 export const ecosystemUnits = [
   {

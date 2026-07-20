@@ -1,15 +1,15 @@
 import {
-  Code2,
+
   Smartphone,
   Cpu,
   ShieldCheck,
   Cloud,
   Layers,
   Globe,
-  MessageSquareCode,
+
   Database,
   Link2,
-  RefreshCw,
+
   Wifi,
 } from 'lucide-react'
 

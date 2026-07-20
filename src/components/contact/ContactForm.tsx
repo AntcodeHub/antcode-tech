@@ -201,7 +201,7 @@ Preferred Contact Method: ${formData.preferredContact}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-[10px] font-mono uppercase tracking-widest text-muted mb-2">
-                Name *
+                Name <span className="text-red-700">*</span>
               </label>
               <input
                 type="text"
@@ -212,7 +212,7 @@ Preferred Contact Method: ${formData.preferredContact}
                 className={`w-full bg-white/5 border rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none transition-colors ${
                   errors.name ? 'border-red-500' : 'border-white/10 focus:border-primary'
                 }`}
-                placeholder="John Doe"
+                placeholder="Ibrahim fonyuy"
               />
               {errors.name && (
                 <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
@@ -222,7 +222,7 @@ Preferred Contact Method: ${formData.preferredContact}
             </div>
             <div>
               <label className="block text-[10px] font-mono uppercase tracking-widest text-muted mb-2">
-                Email *
+                Email <span className="text-red-700">*</span>
               </label>
               <input
                 type="email"
@@ -233,7 +233,7 @@ Preferred Contact Method: ${formData.preferredContact}
                 className={`w-full bg-white/5 border rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none transition-colors ${
                   errors.email ? 'border-red-500' : 'border-white/10 focus:border-primary'
                 }`}
-                placeholder="john@example.com"
+                placeholder="ibrahim@example.com"
               />
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
@@ -259,7 +259,7 @@ Preferred Contact Method: ${formData.preferredContact}
             </div>
             <div>
               <label className="block text-[10px] font-mono uppercase tracking-widest text-muted mb-2">
-                Subject *
+                Subject <span className="text-red-700">*</span>
               </label>
               <input
                 type="text"
@@ -347,7 +347,7 @@ Preferred Contact Method: ${formData.preferredContact}
 
           <div>
             <label className="block text-[10px] font-mono uppercase tracking-widest text-muted mb-2">
-              Message *
+              Message <span className="text-red-700">*</span>
             </label>
             <textarea
               name="message"
@@ -369,7 +369,7 @@ Preferred Contact Method: ${formData.preferredContact}
 
           <div>
             <label className="block text-[10px] font-mono uppercase tracking-widest text-muted mb-2">
-              Security Check *
+              Security Check <span className="text-red-700">*</span>
             </label>
             <div className="flex items-center gap-4">
               <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-mono">

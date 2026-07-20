@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Search, FileText, FolderOpen, Briefcase, ArrowRight } from 'lucide-react'
+import {  Search, FileText, FolderOpen, Briefcase, ArrowRight } from 'lucide-react'
 import { blogPosts } from '../../data/blog'
 import { projects } from '../../data/projects'
 import { services } from '../../data/services'
