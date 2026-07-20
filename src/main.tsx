@@ -4,7 +4,6 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import './index.css'
 import { Navbar } from './components/navigation/Navbar'
 import { Footer } from './components/footer/Footer'
-import { ThemeProvider } from './contexts/ThemeContext'
 
 const Home = lazy(() => import('./pages/Home/Home'))
 const About = lazy(() => import('./pages/About/About'))
@@ -88,8 +87,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <RouterProvider router={router} />
   </StrictMode>,
 )

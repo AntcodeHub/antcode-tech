@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, Search } from 'lucide-react'
 import { cn } from '../../utils/cn'
 import { Button } from '../ui/Button'
-import { ThemeToggle } from '../ui/ThemeToggle'
 import { SearchModal } from '../ui/SearchModal'
 
 const primaryLinks = [
@@ -174,7 +173,6 @@ export function Navbar() {
                      transition={{ delay: 0.35 }}
                      className="flex items-center gap-2"
                    >
-                     <ThemeToggle />
                      <button
                        onClick={() => setIsSearchOpen(true)}
                        className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:border-primary/30 transition-colors"
