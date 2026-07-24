@@ -242,7 +242,7 @@ export function Navbar() {
                                  style={{ maxHeight: '70vh' }}
                                >
                                  <div className="grid grid-cols-3 gap-8">
-                                   {category.sections.map((section, sectionIndex) => (
+                                   {category.sections?.map((section, sectionIndex) => (
                                      <motion.div
                                        key={section.title}
                                        initial={{ opacity: 0, x: 20 }}
@@ -374,7 +374,7 @@ export function Navbar() {
                             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
                             className="pl-6 space-y-1 overflow-hidden"
                           >
-                            {category.sections.map((section) => (
+                            {category.sections?.map((section) => (
                               <div key={section.title} className="mt-4">
                                 <h4 className="text-sm font-bold text-white/60 uppercase tracking-wider mb-3 px-6 border-l-2 border-primary/50">{section.title}</h4>
                                 {section.links.map((link) => (
