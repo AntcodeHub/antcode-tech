@@ -54,7 +54,7 @@ export default function Contact() {
             <div className="glass-card aspect-video flex items-center justify-center bg-surface/50">
               <div className="text-center">
                 <MapPin size={32} className="text-primary/40 mx-auto mb-3" />
-                <p className="text-muted text-sm font-mono">Douala, Cameroon</p>
+                <p className="text-muted text-sm font-mono">Bamenda, Cameroon</p>
               </div>
             </div>
           </div>
