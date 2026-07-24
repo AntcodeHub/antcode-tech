@@ -15,7 +15,7 @@ export function EcosystemSection() {
           Our <span className="text-white/40">Ecosystem</span>
         </h2>
         <p className="text-muted text-lg mt-6 max-w-2xl">
-          Antcode Technology is more than a technology company — it's a complete ecosystem 
+          Antcode Technologies is more than a technology company - it's a complete ecosystem 
           powering Africa's digital transformation.
         </p>
       </div>

@@ -13,7 +13,7 @@ export default function Blog() {
       <PageHero
         label="Blog"
         title={<>Insights & <span className="text-white/40">Engineering</span></>}
-        description="Technical articles, tutorials, and thought leadership from the Antcode Technology team."
+        description="Technical articles, tutorials, and thought leadership from the Antcode Technologies team."
       />
 
       <Section>

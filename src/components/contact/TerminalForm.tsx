@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export function TerminalForm() {
   const [input, setInput] = useState('')
   const [history, setLines] = useState<string[]>([
-    'Initializing Antcode Technology CLI v4.2.0',
+    'Initializing Antcode Technologies CLI v4.2.0',
     'Secure connection established.',
     'Type "help" for a list of commands.',
     '',
@@ -52,7 +52,7 @@ export function TerminalForm() {
           <div className="w-3 h-3 rounded-full bg-green-500/50" />
         </div>
         <div className="text-[10px] text-white/20 uppercase tracking-widest">
-          antcode-terminal — zsh
+          antcode-terminal - zsh
         </div>
         <div className="w-12" />
       </div>

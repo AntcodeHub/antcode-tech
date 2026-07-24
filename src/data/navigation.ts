@@ -17,9 +17,9 @@ export const mainNav = [
 
 export const footerNav = {
   ecosystem: [
-    { name: 'Antcode Technology Community', href: '/community' },
-    { name: 'Antcode Technology', href: '/technology' },
-    { name: 'Antcode Technology Academy', href: '/academy' },
+    { name: 'Antcode Technologies Community', href: '/community' },
+    { name: 'Antcode Technologies', href: '/technology' },
+    { name: 'Antcode Technologies Academy', href: '/academy' },
     { name: 'Open Source', href: '/open-source' },
   ],
   company: [

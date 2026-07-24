@@ -1,7 +1,7 @@
 export const events = [
   {
     id: 'hackathon-2026',
-    title: 'Antcode Technology Hackathon 2026',
+    title: 'Antcode Technologies Hackathon 2026',
     type: 'Hackathon',
     date: '2026-04-20',
     location: 'Douala, Cameroon',
@@ -40,7 +40,7 @@ export const events = [
 export const announcements = [
   {
     id: 'academy-launch',
-    title: 'Antcode Technology Academy Now Open',
+    title: 'Antcode Technologies Academy Now Open',
     date: '2026-02-15',
     type: 'Launch',
     excerpt: 'Enroll in our first cohort of full-stack and AI engineering courses.',

@@ -2,6 +2,9 @@ import { Hero } from '../../components/hero/Hero'
 import { TrustLogos } from '../../components/sections/TrustLogos'
 import { StatsSection } from '../../components/sections/StatsSection'
 import { AboutPreview } from '../../components/sections/AboutPreview'
+import { OurStory } from '../../components/sections/OurStory'
+import { OurTeam } from '../../components/sections/OurTeam'
+import { HowWeWork } from '../../components/sections/HowWeWork'
 import { EcosystemSection } from '../../components/sections/EcosystemSection'
 import { ServicesGrid } from '../../components/services/ServicesGrid'
 import { WhyChooseUs } from '../../components/sections/WhyChooseUs'
@@ -26,6 +29,9 @@ export default function Home() {
       <TrustLogos />
       <StatsSection />
       <AboutPreview />
+      <OurStory />
+      <OurTeam />
+      <HowWeWork />
       <EcosystemSection />
       <ServicesGrid />
       <WhyChooseUs />

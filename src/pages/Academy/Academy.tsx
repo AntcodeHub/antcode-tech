@@ -10,7 +10,7 @@ export default function Academy() {
   return (
     <div className="flex flex-col">
       <PageHero
-        label="Antcode Technology Academy"
+        label="Antcode Technologies Academy"
         title={<>Learn. Build. <span className="text-white/40">Lead.</span></>}
         description="Structured courses, mentorship, and certifications designed to launch your technology career."
       />

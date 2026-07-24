@@ -11,7 +11,7 @@ export default function Events() {
       <PageHero
         label="Events"
         title={<>Hackathons, Workshops & <span className="text-white/40">Meetups</span></>}
-        description="Join us at upcoming events — online and across Africa."
+        description="Join us at upcoming events - online and across Africa."
       />
 
       <Section>

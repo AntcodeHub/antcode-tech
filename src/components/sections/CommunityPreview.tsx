@@ -14,7 +14,7 @@ export function CommunityPreview() {
             Join the Movement
           </span>
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white leading-tight mb-6">
-            Antcode Technology <span className="text-white/40">Community</span>
+            Antcode Technologies <span className="text-white/40">Community</span>
           </h2>
           <p className="text-muted text-lg leading-relaxed mb-8">
             Connect with 500+ developers, join hackathons, attend events, 

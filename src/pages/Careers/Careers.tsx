@@ -18,10 +18,10 @@ export default function Careers() {
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
           <div>
-            <span className="font-mono text-primary text-[10px] uppercase tracking-[0.4em] mb-4 block">Life at Antcode Technology</span>
+            <span className="font-mono text-primary text-[10px] uppercase tracking-[0.4em] mb-4 block">Life at Antcode Technologies</span>
             <h2 className="text-3xl font-heading font-bold text-white mb-6">Why Work Here</h2>
             <p className="text-muted leading-relaxed mb-8">
-              At Antcode Technology, you'll work on meaningful projects that impact millions across Africa. 
+              At Antcode Technologies, you'll work on meaningful projects that impact millions across Africa. 
               We invest in our people with mentorship, learning budgets, and a culture of innovation.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

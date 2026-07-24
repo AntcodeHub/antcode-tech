@@ -25,7 +25,7 @@ export function FinalCTA() {
           </h2>
           <p className="text-muted text-lg max-w-xl mx-auto mb-12">
             Whether you need a product built, want to join our community, 
-            or learn with Antcode Technology Academy — we're here for you.
+            or learn with Antcode Technologies Academy - we're here for you.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Magnetic>

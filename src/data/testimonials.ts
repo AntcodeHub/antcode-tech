@@ -1,7 +1,7 @@
 export const testimonials = [
   {
     id: 1,
-    quote: 'Antcode Technology transformed our healthcare platform from concept to production in 12 weeks. Their engineering quality is unmatched.',
+    quote: 'Antcode Technologies transformed our healthcare platform from concept to production in 12 weeks. Their engineering quality is unmatched.',
     author: 'Dr. Sarah N.',
     role: 'CTO, MedHealth Africa',
     company: 'MedHealth',
@@ -22,7 +22,7 @@ export const testimonials = [
   },
   {
     id: 4,
-    quote: 'Antcode Technology Academy helped us upskill our entire engineering team. The mentorship program is exceptional.',
+    quote: 'Antcode Technologies Academy helped us upskill our entire engineering team. The mentorship program is exceptional.',
     author: 'David O.',
     role: 'VP Engineering, EduStream',
     company: 'EduStream',

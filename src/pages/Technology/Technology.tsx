@@ -11,7 +11,7 @@ export default function Technology() {
   return (
     <div className="flex flex-col">
       <PageHero
-        label="Antcode Technology"
+        label="Antcode Technologies"
         title={<>Enterprise Engineering <span className="text-white/40">Agency</span></>}
         description="We design, build, and scale production-grade software for organizations across Africa and beyond."
       />
@@ -64,7 +64,7 @@ export default function Technology() {
 
       <Section className="bg-surface/30 text-center">
         <h2 className="text-3xl font-heading font-bold text-white mb-4">Book a Consultation</h2>
-        <p className="text-muted max-w-lg mx-auto mb-8">Let's discuss your project requirements and how Antcode Technology can help.</p>
+        <p className="text-muted max-w-lg mx-auto mb-8">Let's discuss your project requirements and how Antcode Technologies can help.</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button asChild variant="primary" size="lg" className="font-mono uppercase tracking-widest">
             <Link to="/contact">Book Meeting</Link>

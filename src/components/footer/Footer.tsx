@@ -82,7 +82,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/20 text-[10px] font-mono uppercase tracking-widest">
-            © {new Date().getFullYear()} Antcode Technology. All rights reserved.
+            © {new Date().getFullYear()} Antcode Technologies. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             {footerNav.legal.map((link) => (

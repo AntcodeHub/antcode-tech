@@ -2,18 +2,18 @@ export const blogPosts = [
   {
     id: 'ai-africa-future',
     title: 'Building AI Infrastructure for Africa\'s Future',
-    excerpt: 'How Antcode Technology is deploying machine learning pipelines tailored for African data landscapes.',
+    excerpt: 'How Antcode Technologies is deploying machine learning pipelines tailored for African data landscapes.',
     category: 'AI',
     date: '2026-03-15',
     readTime: '8 min',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
     likes: 120,
-    author: 'Antcode Technology Team',
+    author: 'Antcode Technologies Team',
     tags: ['AI', 'Africa', 'Machine Learning'],
     content: `
 # Building AI Infrastructure for Africa's Future
 
-Africa is experiencing a technological renaissance, and at the heart of this transformation lies artificial intelligence. At Antcode Technology, we've been working on deploying machine learning pipelines specifically tailored for African data landscapes.
+Africa is experiencing a technological renaissance, and at the heart of this transformation lies artificial intelligence. At Antcode Technologies, we've been working on deploying machine learning pipelines specifically tailored for African data landscapes.
 
 ## The Challenge
 
@@ -48,12 +48,12 @@ The future of AI in Africa is bright. We're investing in training local talent, 
     readTime: '12 min',
     image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80',
     likes: 85,
-    author: 'Antcode Technology Team',
+    author: 'Antcode Technologies Team',
     tags: ['React', 'JavaScript', 'Frontend'],
     content: `
 # React 19 Patterns for Production Apps
 
-React 19 brings powerful new features that change how we build applications. At Antcode Technology, we've been adopting these patterns in production with great results.
+React 19 brings powerful new features that change how we build applications. At Antcode Technologies, we've been adopting these patterns in production with great results.
 
 ## Server Components
 
@@ -113,7 +113,7 @@ React 19 represents a significant step forward for web application development, 
     date: '2026-02-28',
     readTime: '10 min',
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80',
-    author: 'Antcode Technology Team',
+    author: 'Antcode Technologies Team',
     tags: ['Cybersecurity', 'Africa', 'Startup'],
     likes: 95,
     content: `

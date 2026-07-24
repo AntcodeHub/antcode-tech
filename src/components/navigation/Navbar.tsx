@@ -181,7 +181,7 @@ export function Navbar() {
           {(!isHovered && !isMobileMenuOpen) ? (
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="text-white font-bold text-lg">
-                 Antcode <span className="text-primary font-medium">Technology</span>
+                 Antcode <span className="text-primary font-medium">Technologies</span>
               </span>
             </div>
           ) : (
@@ -196,14 +196,14 @@ export function Navbar() {
                   exit={{ opacity: 0, x: -10 }}
                   className="ml-3 font-heading font-bold text-white tracking-tight whitespace-nowrap"
                 >
-                  Antcode <span className="text-primary font-medium">Technology</span>
+                  Antcode <span className="text-primary font-medium">Technologies</span>
                 </motion.span>
               </AnimatePresence>
             </Link>
           )}
 
           {/* Desktop Links (Visible on Hover) */}
-          <div className="hidden lg:flex items-center space-x-6 px-8">
+          <div className="hidden lg:flex items-center space-x-8 px-8">
              <AnimatePresence>
                {isHovered && (
                  <>
@@ -213,7 +213,7 @@ export function Navbar() {
                        initial={{ opacity: 0, y: 10 }}
                        animate={{ opacity: 1, y: 0 }}
                        transition={{ delay: i * 0.05, type: 'spring', stiffness: 300 }}
-                       className="relative"
+                       className="relative flex items-center"
                        onMouseEnter={() => category.hasDropdown && setActiveDropdown(category.name)}
                        onMouseLeave={() => setActiveDropdown(null)}
                      >
@@ -238,7 +238,7 @@ export function Navbar() {
                                  animate={{ opacity: 1, y: 0, scale: 1 }}
                                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                  transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                                 className="fixed left-1/2 -translate-x-1/2 top-24 mt-4 w-[80vw] max-w-6xl glass-card p-8 border border-white/10 shadow-2xl z-50 bg-black/90 backdrop-blur-xl rounded-2xl"
+                                 className="fixed left-1/2 -translate-x-1/2 top-24 mt-4 w-[80vw] max-w-6xl glass-card p-8 border border-white/10 shadow-2xl z-50 bg-black backdrop-blur-xl rounded-2xl"
                                  style={{ maxHeight: '70vh' }}
                                >
                                  <div className="grid grid-cols-3 gap-8">
@@ -260,12 +260,7 @@ export function Navbar() {
                                            >
                                              <Link
                                                to={link.href}
-                                               className={cn(
-                                                 'block px-4 py-3 text-xs font-mono uppercase tracking-widest rounded-lg transition-all duration-300 hover:scale-105',
-                                                 location.pathname === link.href
-                                                   ? 'text-primary bg-primary/20 border border-primary/30'
-                                                   : 'text-white/70 hover:text-white hover:bg-white/10'
-                                               )}
+                                               className="block px-4 py-3 text-xs font-mono uppercase tracking-widest rounded-lg transition-all duration-300 hover:scale-105 text-white/70 hover:text-white hover:bg-white/10"
                                              >
                                                {link.name}
                                              </Link>
@@ -344,13 +339,13 @@ export function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed inset-0 top-0 bg-black/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-center space-y-6 p-6"
+            className="fixed top-24 left-0 right-0 bottom-0 bg-black/98 backdrop-blur-2xl z-40 flex flex-col p-6 overflow-y-auto"
           >
-            <div className="w-full max-w-md space-y-2">
+            <div className="w-full max-w-md mx-auto space-y-2 pb-8">
               {navCategories.map((category, index) => (
                 <motion.div
                   key={category.name}
@@ -363,7 +358,7 @@ export function Navbar() {
                       <button
                         onClick={() => setActiveDropdown(activeDropdown === category.name ? null : category.name)}
                         className={cn(
-                          'w-full flex items-center justify-between text-center text-2xl font-heading font-bold py-4 px-6 rounded-xl transition-all duration-300',
+                          'w-full flex items-center justify-between text-left text-xl font-heading font-bold py-4 px-6 rounded-xl transition-all duration-300 active:scale-95',
                           activeDropdown === category.name ? 'text-primary bg-primary/10' : 'text-white/40 hover:text-white hover:bg-white/5'
                         )}
                       >
@@ -386,8 +381,9 @@ export function Navbar() {
                                   <Link
                                     key={link.href}
                                     to={link.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
                                     className={cn(
-                                      'block text-center text-lg font-heading font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105',
+                                      'block text-left text-base font-heading font-medium py-3 px-6 rounded-lg transition-all duration-300 active:scale-95',
                                       location.pathname === link.href 
                                         ? 'text-primary bg-primary/10' 
                                         : 'text-white/40 hover:text-white hover:bg-white/5'
@@ -407,15 +403,16 @@ export function Navbar() {
                       asChild
                       variant="primary"
                       size="lg"
-                      className="w-full rounded-full font-mono uppercase tracking-widest py-4 shadow-lg shadow-primary/25"
+                      className="w-full rounded-full font-mono uppercase tracking-widest py-4 shadow-lg shadow-primary/25 active:scale-95 transition-transform"
                     >
-                      <Link to={category.href!}>{category.name}</Link>
+                      <Link to={category.href!} onClick={() => setIsMobileMenuOpen(false)}>{category.name}</Link>
                     </Button>
                   ) : (
                     <Link
                       to={category.href!}
+                      onClick={() => setIsMobileMenuOpen(false)}
                       className={cn(
-                        'block text-center text-2xl font-heading font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105',
+                        'block text-left text-xl font-heading font-bold py-4 px-6 rounded-xl transition-all duration-300 active:scale-95',
                         location.pathname === category.href 
                           ? 'text-primary bg-primary/10' 
                           : 'text-white/40 hover:text-white hover:bg-white/5'

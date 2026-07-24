@@ -10,7 +10,7 @@ export default function Community() {
   return (
     <div className="flex flex-col">
       <PageHero
-        label="Antcode Technology Community"
+        label="Antcode Technologies Community"
         title={<>Where Africa's <span className="text-white/40">Builders</span> Connect</>}
         description="Join 500+ developers, attend events, compete in hackathons, and contribute to open-source projects."
       />

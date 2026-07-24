@@ -17,7 +17,7 @@ export function ServicesGrid() {
             Our <span className="text-white/40">Services</span>
           </h2>
           <p className="text-muted text-lg mt-4 max-w-xl">
-            From AI to mobile, cloud to cybersecurity — comprehensive technology services for every stage of your journey.
+            From AI to mobile, cloud to cybersecurity - comprehensive technology services for every stage of your journey.
           </p>
         </div>
         <Link

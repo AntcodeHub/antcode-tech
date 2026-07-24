@@ -5,16 +5,16 @@ import { EcosystemSection } from '../../components/sections/EcosystemSection'
 import { StatsSection } from '../../components/sections/StatsSection'
 
 const values = [
-  { title: 'Mission', content: 'To build the technology infrastructure Africa needs — empowering businesses, communities, and the next generation of innovators.' },
+  { title: 'Mission', content: 'To build the technology infrastructure Africa needs - empowering businesses, communities, and the next generation of innovators.' },
   { title: 'Vision', content: 'A thriving African technology ecosystem where world-class engineering, education, and community drive sustainable digital transformation.' },
   { title: 'Values', content: 'Excellence, transparency, community-first thinking, open source contribution, and relentless focus on impact over hype.' },
 ]
 
 const milestones = [
-  { id:1, year: '2023', title: 'Founded', description: 'Antcode Technology born in Douala with a mission to build Africa\'s tech future.' },
+  { id:1, year: '2023', title: 'Founded', description: 'Antcode Technologies born in Douala with a mission to build Africa\'s tech future.' },
   { id:2, year: '2024', title: 'First Products', description: 'Delivered first smart tracking solution for institutions.' },
-  { id:3, year: '2024', title: 'Community Launch', description: 'Antcode Technology Community launched with 100 founding members across the country' },
-  { id:4, year: '2025', title: 'Cohort Opens', description: 'Antcode Technology Cohort begins training the next generation of African engineers.' },
+  { id:3, year: '2024', title: 'Community Launch', description: 'Antcode Technologies Community launched with 100 founding members across the country' },
+  { id:4, year: '2025', title: 'Cohort Opens', description: 'Antcode Technologies Cohort begins training the next generation of African engineers.' },
   { id:5, year: '2025', title: 'Open Source Initiative', description: 'Launched multiple open-source projects in GitHub.' },
   { id:6, year: '2026', title: 'Global Expansion', description: 'Expanded operations to 10+ Areas/tech sectors with 500+ community members.' },
 ]
@@ -23,9 +23,9 @@ export default function About() {
   return (
     <div className="flex flex-col">
       <PageHero
-        label="About Antcode Technology"
+        label="About Antcode Technologies"
         title={<>Building Africa's <span className="text-white/40">Technology Future</span></>}
-        description="Antcode Technology is the home of Africa's technology ecosystem — engineering enterprise solutions, nurturing communities, and training the next generation."
+        description="Antcode Technologies is the home of Africa's technology ecosystem - engineering enterprise solutions, nurturing communities, and training the next generation."
       />
 
       <Section>

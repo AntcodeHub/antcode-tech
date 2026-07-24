@@ -9,7 +9,7 @@ export function WhyChooseUs() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
         <div className="lg:col-span-4">
           <span className="font-mono text-primary text-[10px] uppercase tracking-[0.4em] mb-6 block">
-            Why Antcode Technology
+            Why Antcode Technologies
           </span>
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white leading-tight sticky top-32">
             Why Choose <span className="text-white/40">Us</span>

@@ -16,7 +16,7 @@ export const testimonials = [
     role: 'CTO',
     company: 'TechCorp',
     avatar: 'JD',
-    content: 'Antcode Technology transformed our entire infrastructure. Their AI solutions reduced our processing time by 60% and their team was incredibly responsive throughout the project.',
+    content: 'Antcode Technologies transformed our entire infrastructure. Their AI solutions reduced our processing time by 60% and their team was incredibly responsive throughout the project.',
     rating: 5,
     project: 'Enterprise AI Infrastructure'
   },
@@ -36,7 +36,7 @@ export const testimonials = [
     role: 'Founder',
     company: 'CloudNine',
     avatar: 'MC',
-    content: 'The team at Antcode Technology understands enterprise needs. They built us a scalable cloud solution that has grown with our business from startup to enterprise level.',
+    content: 'The team at Antcode Technologies understands enterprise needs. They built us a scalable cloud solution that has grown with our business from startup to enterprise level.',
     rating: 5,
     project: 'Cloud Migration'
   },

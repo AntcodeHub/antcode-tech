@@ -3,7 +3,7 @@ import { Users, Cpu, GitBranch, FlaskConical } from 'lucide-react'
 export const ecosystemUnits = [
   {
     id: 'community',
-    title: 'Antcode Technology Community',
+    title: 'Antcode Technologies Community',
     description: 'A thriving network of developers, innovators, and tech enthusiasts across Africa and beyond.',
     icon: Users,
     href: '/community',
@@ -12,7 +12,7 @@ export const ecosystemUnits = [
   },
   {
     id: 'technology',
-    title: 'Antcode Technology',
+    title: 'Antcode Technologies',
     description: 'Enterprise-grade software engineering, AI solutions, and digital transformation services.',
     icon: Cpu,
     href: '/technology',
