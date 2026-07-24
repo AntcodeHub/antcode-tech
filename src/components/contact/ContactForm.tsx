@@ -34,15 +34,15 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [captchaAnswer, setCaptchaAnswer] = useState('')
-  const [captchaQuestion, setCaptchaQuestion] = useState('')
+  // const [captchaQuestion, setCaptchaQuestion] = useState('')
   const [captchaResult, setCaptchaResult] = useState(0)
 
   // Simple math CAPTCHA
   const generateCaptcha = () => {
     const num1 = Math.floor(Math.random() * 10) + 1
     const num2 = Math.floor(Math.random() * 10) + 1
-    const question = `${num1} + ${num2} = ?`
-    setCaptchaQuestion(question)
+    // const question = `${num1} + ${num2} = ?`
+    // setCaptchaQuestion(question)
     setCaptchaResult(num1 + num2)
   }
 
