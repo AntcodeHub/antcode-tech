@@ -18,7 +18,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, type: 'spring', stiffness: 100 }}
-            className="text-6xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[100px] font-heading font-bold text-white mb-8 md:mb-12 lg:mb-16 leading-[1.1]"
+            className="text-5xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[100px] font-heading font-bold text-white mb-8 md:mb-12 lg:mb-16 leading-[1.1]"
           >
             <motion.span
               initial={{ opacity: 0, x: -20 }}
