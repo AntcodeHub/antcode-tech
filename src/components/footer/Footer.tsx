@@ -11,7 +11,7 @@ export function Footer() {
             <Link to="/" className="flex items-center gap-3">
               
               <span className="font-heading font-bold text-xl text-white">
-                Antcode <span className="text-primary">Technology</span>
+                Antcode <span className="text-primary">Technologies</span>
               </span>
             </Link>
             <p className="text-muted leading-relaxed max-w-sm">

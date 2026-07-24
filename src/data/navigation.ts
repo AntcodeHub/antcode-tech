@@ -26,7 +26,7 @@ export const footerNav = {
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Projects', href: '/projects' },
     { name: 'Careers', href: '/careers' },
     { name: 'Contact', href: '/contact' },
   ],
