@@ -367,7 +367,7 @@ Preferred Contact Method: ${formData.preferredContact}
             )}
           </div>
 
-          <div>
+          {/* <div>
             <label className="block text-[10px] font-mono uppercase tracking-widest text-muted mb-2">
               Security Check <span className="text-red-700">*</span>
             </label>
@@ -383,7 +383,7 @@ Preferred Contact Method: ${formData.preferredContact}
                 placeholder="?"
               />
             </div>
-          </div>
+          </div> */}
 
           <Button
             type="submit"
