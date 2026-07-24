@@ -6,32 +6,126 @@ import { cn } from '../../utils/cn'
 import { Button } from '../ui/Button'
 import { SearchModal } from '../ui/SearchModal'
 
-const primaryLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Community', href: '/community' },
-  { name: 'Technology', href: '/technology' },
-]
-
-const moreLinks = [
-  { name: 'About', href: '/about' },
-  { name: 'Solutions', href: '/solutions' },
-  { name: 'Industries', href: '/industries' },
-  { name: 'Open Source', href: '/open-source' },
-  { name: 'Projects', href: '/projects' },
-  // { name: 'Portfolio', href: '/portfolio' },
-  { name: 'Events', href: '/events' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Careers', href: '/careers' },
-  { name: 'Pricing', href: '/pricing' },
+const navCategories = [
+  {
+    name: 'Home',
+    href: '/',
+    hasDropdown: false
+  },
+  {
+    name: 'What We Do',
+    hasDropdown: true,
+    sections: [
+      {
+        title: 'Services',
+        links: [
+          { name: 'All Services', href: '/services' },
+          { name: 'Web Development', href: '/services' },
+          { name: 'Mobile Development', href: '/services' },
+          { name: 'UI/UX Design', href: '/services' },
+          { name: 'Cloud Solutions', href: '/services' },
+        ]
+      },
+      {
+        title: 'Solutions',
+        links: [
+          { name: 'All Solutions', href: '/solutions' },
+          { name: 'Enterprise Solutions', href: '/solutions' },
+          { name: 'Custom Software', href: '/solutions' },
+          { name: 'API Development', href: '/solutions' },
+        ]
+      },
+      {
+        title: 'Industries',
+        links: [
+          { name: 'All Industries', href: '/industries' },
+          { name: 'FinTech', href: '/industries' },
+          { name: 'Healthcare', href: '/industries' },
+          { name: 'Education', href: '/industries' },
+        ]
+      }
+    ]
+  },
+  {
+    name: 'Portfolio',
+    hasDropdown: true,
+    sections: [
+      {
+        title: 'Case Studies',
+        links: [
+          { name: 'All Case Studies', href: '/case-studies' },
+          { name: 'Featured Projects', href: '/case-studies' },
+          { name: 'Success Stories', href: '/case-studies' },
+          { name: 'Client Results', href: '/case-studies' },
+        ]
+      },
+      {
+        title: 'Projects',
+        links: [
+          { name: 'All Projects', href: '/projects' },
+          { name: 'Open Source', href: '/open-source' },
+          { name: 'Community Projects', href: '/community' },
+          { name: 'Resources', href: '/resources' },
+        ]
+      },
+      {
+        title: 'Technology',
+        links: [
+          { name: 'Our Tech Stack', href: '/technology' },
+          { name: 'Frameworks', href: '/technology' },
+          { name: 'Tools & Platforms', href: '/technology' },
+          { name: 'Best Practices', href: '/technology' },
+        ]
+      }
+    ]
+  },
+  {
+    name: 'Our Story',
+    hasDropdown: true,
+    sections: [
+      {
+        title: 'About Us',
+        links: [
+          { name: 'Company Overview', href: '/about' },
+          { name: 'Our Mission', href: '/about' },
+          { name: 'Our Vision', href: '/about' },
+          { name: 'Core Values', href: '/about' },
+        ]
+      },
+      {
+        title: 'Team & Culture',
+        links: [
+          { name: 'Careers', href: '/careers' },
+          { name: 'Join Our Team', href: '/careers' },
+          { name: 'Academy', href: '/academy' },
+          { name: 'Events', href: '/events' },
+        ]
+      },
+      {
+        title: 'Community',
+        links: [
+          { name: 'Blog', href: '/blog' },
+          { name: 'Open Source', href: '/open-source' },
+          { name: 'Events', href: '/events' },
+          { name: 'Pricing', href: '/pricing' },
+        ]
+      }
+    ]
+  },
+  {
+    name: 'Contact',
+    href: '/contact',
+    hasDropdown: false,
+    isButton: true
+  },
 ]
 
 export function Navbar() {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [moreOpen, setMoreOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const location = useLocation()
 
   useEffect(() => {
@@ -44,7 +138,7 @@ export function Navbar() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false)
-    setMoreOpen(false)
+    setActiveDropdown(null)
   }, [location])
 
   useEffect(() => {
@@ -66,7 +160,7 @@ export function Navbar() {
       <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-6 pointer-events-none">
         <motion.nav
           onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          
           initial={false}
           animate={{
             width: isHovered || isMobileMenuOpen ? '100%' : 'auto',
@@ -109,79 +203,119 @@ export function Navbar() {
           )}
 
           {/* Desktop Links (Visible on Hover) */}
-          <div className="hidden lg:flex items-center space-x-8 px-8">
+          <div className="hidden lg:flex items-center space-x-6 px-8">
              <AnimatePresence>
                {isHovered && (
                  <>
-                   {primaryLinks.map((link, i) => (
+                   {navCategories.map((category, i) => (
                      <motion.div
-                       key={link.name}
+                       key={category.name}
                        initial={{ opacity: 0, y: 10 }}
                        animate={{ opacity: 1, y: 0 }}
-                       transition={{ delay: i * 0.05 }}
+                       transition={{ delay: i * 0.05, type: 'spring', stiffness: 300 }}
+                       className="relative"
+                       onMouseEnter={() => category.hasDropdown && setActiveDropdown(category.name)}
+                       onMouseLeave={() => setActiveDropdown(null)}
                      >
-                       <Link
-                         to={link.href}
-                         className={cn(
-                           'text-xs font-mono uppercase tracking-widest transition-colors hover:text-primary',
-                           location.pathname === link.href ? 'text-primary' : 'text-white/60'
-                         )}
-                       >
-                         {link.name}
-                       </Link>
+                       {category.hasDropdown ? (
+                         <>
+                           <button
+                             className={cn(
+                               'flex items-center gap-1 text-xs font-mono uppercase tracking-widest transition-all duration-300 hover:text-primary relative group',
+                               activeDropdown === category.name ? 'text-primary' : 'text-white/60'
+                             )}
+                           >
+                             <span className="relative">
+                               {category.name}
+                               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                             </span>
+                             <ChevronDown size={14} className={cn('transition-transform duration-300', activeDropdown === category.name && 'rotate-180')} />
+                           </button>
+                           <AnimatePresence>
+                             {activeDropdown === category.name && (
+                               <motion.div
+                                 initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                 animate={{ opacity: 1, y: 0, scale: 1 }}
+                                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                 transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                                 className="fixed left-1/2 -translate-x-1/2 top-24 mt-4 w-[80vw] max-w-6xl glass-card p-8 border border-white/10 shadow-2xl z-50 bg-black/90 backdrop-blur-xl rounded-2xl"
+                                 style={{ maxHeight: '70vh' }}
+                               >
+                                 <div className="grid grid-cols-3 gap-8">
+                                   {category.sections.map((section, sectionIndex) => (
+                                     <motion.div
+                                       key={section.title}
+                                       initial={{ opacity: 0, x: 20 }}
+                                       animate={{ opacity: 1, x: 0 }}
+                                       transition={{ delay: sectionIndex * 0.1 }}
+                                     >
+                                       <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider border-b border-white/10 pb-2">{section.title}</h3>
+                                       <div className="space-y-1">
+                                         {section.links.map((link, linkIndex) => (
+                                           <motion.div
+                                             key={link.href}
+                                             initial={{ opacity: 0, x: 10 }}
+                                             animate={{ opacity: 1, x: 0 }}
+                                             transition={{ delay: sectionIndex * 0.1 + linkIndex * 0.05 }}
+                                           >
+                                             <Link
+                                               to={link.href}
+                                               className={cn(
+                                                 'block px-4 py-3 text-xs font-mono uppercase tracking-widest rounded-lg transition-all duration-300 hover:scale-105',
+                                                 location.pathname === link.href
+                                                   ? 'text-primary bg-primary/20 border border-primary/30'
+                                                   : 'text-white/70 hover:text-white hover:bg-white/10'
+                                               )}
+                                             >
+                                               {link.name}
+                                             </Link>
+                                           </motion.div>
+                                         ))}
+                                       </div>
+                                     </motion.div>
+                                   ))}
+                                 </div>
+                               </motion.div>
+                             )}
+                           </AnimatePresence>
+                         </>
+                       ) : category.isButton ? (
+                         <Button
+                           asChild
+                           variant="primary"
+                           size="sm"
+                           className="h-9 rounded-full text-[10px] uppercase tracking-widest px-6 font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 hover:scale-105"
+                         >
+                           <Link to={category.href!}>{category.name}</Link>
+                         </Button>
+                       ) : (
+                         <Link
+                           to={category.href!}
+                           className={cn(
+                             'text-xs font-mono uppercase tracking-widest transition-all duration-300 hover:text-primary relative group',
+                             location.pathname === category.href ? 'text-primary' : 'text-white/60'
+                           )}
+                         >
+                           <span className="relative">
+                             {category.name}
+                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                           </span>
+                         </Link>
+                       )}
                      </motion.div>
                    ))}
-                   <div className="relative">
-                     <motion.button
-                       initial={{ opacity: 0, y: 10 }}
-                       animate={{ opacity: 1, y: 0 }}
-                       transition={{ delay: 0.3 }}
-                       onClick={() => setMoreOpen(!moreOpen)}
-                       className="flex items-center gap-1 text-xs font-mono uppercase tracking-widest transition-colors hover:text-primary text-white/60"
-                     >
-                       More <ChevronDown size={14} className={cn('transition-transform', moreOpen && 'rotate-180')} />
-                     </motion.button>
-                     <AnimatePresence>
-                       {moreOpen && (
-                         <motion.div
-                           initial={{ opacity: 0, y: 10 }}
-                           animate={{ opacity: 1, y: 0 }}
-                           exit={{ opacity: 0, y: 10 }}
-                           className="absolute top-full right-0 mt-2 w-56 glass-card p-2 border-white/10 shadow-2xl z-100 bg-black/60"
-                         >
-                           {moreLinks.map((link) => (
-                             <Link
-                               key={link.href}
-                               to={link.href}
-                               className={cn(
-                                 'block px-4 py-2.5 text-xs font-mono uppercase tracking-widest rounded-lg transition-colors',
-                                 location.pathname === link.href
-                                   ? 'text-primary bg-primary/10'
-                                   : 'text-white/60 hover:text-white hover:bg-white/5'
-                               )}
-                             >
-                               {link.name}
-                             </Link>
-                           ))}
-                         </motion.div>
-                       )}
-                     </AnimatePresence>
-                   </div>
                    <motion.div
                      initial={{ opacity: 0, scale: 0.8 }}
                      animate={{ opacity: 1, scale: 1 }}
-                     transition={{ delay: 0.35 }}
+                     transition={{ delay: 0.35, type: 'spring', stiffness: 300 }}
                      className="flex items-center gap-2"
                    >
                      <button
                        onClick={() => setIsSearchOpen(true)}
-                       className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:border-primary/30 transition-colors"
+                       className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:border-primary/50 hover:bg-primary/20 transition-all duration-300 hover:scale-110 group"
                      >
-                       <Search size={18} className="text-white/60" />
+                       <Search size={18} className="text-white/60 group-hover:text-primary transition-colors" />
                      </button>
-                     <Button asChild variant="primary" size="sm" className="h-8 rounded-full text-[10px] uppercase tracking-widest px-6">
-                       <Link to="/contact">Contact Us</Link>
-                     </Button>
                    </motion.div>
                  </>
                )}
@@ -217,39 +351,82 @@ export function Navbar() {
             className="fixed inset-0 top-0 bg-black/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-center space-y-6 p-6"
           >
             <div className="w-full max-w-md space-y-2">
-              {primaryLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className={cn(
-                    'block text-center text-2xl font-heading font-bold py-4 px-6 rounded-xl transition-all',
-                    location.pathname === link.href 
-                      ? 'text-primary bg-primary/10' 
-                      : 'text-white/40 hover:text-white hover:bg-white/5'
-                  )}
+              {navCategories.map((category, index) => (
+                <motion.div
+                  key={category.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
                 >
-                  {link.name}
-                </Link>
-              ))}
-              <div className="border-t border-white/10 my-4" />
-              {moreLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className={cn(
-                    'block text-center text-xl font-heading font-medium py-3 px-6 rounded-lg transition-all',
-                    location.pathname === link.href 
-                      ? 'text-primary bg-primary/10' 
-                      : 'text-white/40 hover:text-white hover:bg-white/5'
+                  {category.hasDropdown ? (
+                    <>
+                      <button
+                        onClick={() => setActiveDropdown(activeDropdown === category.name ? null : category.name)}
+                        className={cn(
+                          'w-full flex items-center justify-between text-center text-2xl font-heading font-bold py-4 px-6 rounded-xl transition-all duration-300',
+                          activeDropdown === category.name ? 'text-primary bg-primary/10' : 'text-white/40 hover:text-white hover:bg-white/5'
+                        )}
+                      >
+                        {category.name}
+                        <ChevronDown size={20} className={cn('transition-transform duration-300', activeDropdown === category.name && 'rotate-180')} />
+                      </button>
+                      <AnimatePresence>
+                        {activeDropdown === category.name && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                            className="pl-6 space-y-1 overflow-hidden"
+                          >
+                            {category.sections.map((section) => (
+                              <div key={section.title} className="mt-4">
+                                <h4 className="text-sm font-bold text-white/60 uppercase tracking-wider mb-3 px-6 border-l-2 border-primary/50">{section.title}</h4>
+                                {section.links.map((link) => (
+                                  <Link
+                                    key={link.href}
+                                    to={link.href}
+                                    className={cn(
+                                      'block text-center text-lg font-heading font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105',
+                                      location.pathname === link.href 
+                                        ? 'text-primary bg-primary/10' 
+                                        : 'text-white/40 hover:text-white hover:bg-white/5'
+                                    )}
+                                  >
+                                    {link.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  ) : category.isButton ? (
+                    <Button
+                      asChild
+                      variant="primary"
+                      size="lg"
+                      className="w-full rounded-full font-mono uppercase tracking-widest py-4 shadow-lg shadow-primary/25"
+                    >
+                      <Link to={category.href!}>{category.name}</Link>
+                    </Button>
+                  ) : (
+                    <Link
+                      to={category.href!}
+                      className={cn(
+                        'block text-center text-2xl font-heading font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105',
+                        location.pathname === category.href 
+                          ? 'text-primary bg-primary/10' 
+                          : 'text-white/40 hover:text-white hover:bg-white/5'
+                      )}
+                    >
+                      {category.name}
+                    </Link>
                   )}
-                >
-                  {link.name}
-                </Link>
+                </motion.div>
               ))}
             </div>
-            <Button asChild variant="primary" size="lg" className="w-full max-w-xs rounded-full font-mono uppercase tracking-widest mt-8">
-              <Link to="/contact">Start Project</Link>
-            </Button>
           </motion.div>
         )}
       </AnimatePresence>
